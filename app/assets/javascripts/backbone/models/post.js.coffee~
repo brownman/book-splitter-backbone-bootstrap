@@ -18,4 +18,4 @@ class RailsBackboneRelational.Models.Post extends Backbone.RelationalModel
 class RailsBackboneRelational.Collections.PostsCollection extends Backbone.Collection
   model: RailsBackboneRelational.Models.Post
   url: '/posts'
-  #localStorage: new Backbone.LocalStorage("PostsCollection")
+  localStorage: new Backbone.LocalStorage("PostsCollection")

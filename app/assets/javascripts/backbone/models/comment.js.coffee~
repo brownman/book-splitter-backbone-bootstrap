@@ -7,4 +7,4 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
 class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Collection
   model: RailsBackboneRelational.Models.Comment
   url: '/comments'
-  #localStorage: new Backbone.LocalStorage("CommentsCollection")
+  localStorage: new Backbone.LocalStorage("CommentsCollection")
