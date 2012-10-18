@@ -2,7 +2,7 @@
 
 <a href="/comments#/<%= id %>/destroy" class="destroy"></a>
 
-<ol class='todo-array'>
+<ol class='split'>
 <%= this.splitted() %>
 </ol>
 <a></a>

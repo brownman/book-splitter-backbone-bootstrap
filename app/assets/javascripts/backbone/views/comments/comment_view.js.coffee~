@@ -19,7 +19,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     return false
 
-  render: =>
+  render: ->
     #alert('render comment!')
     #console.log(@model.get('content'))
     #alert(@model.get('content')) 
@@ -42,7 +42,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
         
   show_index:   (ev) ->  
     num = $(ev.target).index()
-    #alert(num)
+    alert(num)
     array =     @model.split()
     array[num...num] = ['=']
     text = array.join("")

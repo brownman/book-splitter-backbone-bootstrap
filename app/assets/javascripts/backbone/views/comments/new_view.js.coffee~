@@ -24,7 +24,7 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
           #alert('success')
           view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
           $(@.el).parent().prev().find('.comments-list').append(view.render().el)
-          @$('.content').val('')
+          @$('.content').val('rabiii')
 
         error: (comment, jqXHR) =>
           alert('error')
