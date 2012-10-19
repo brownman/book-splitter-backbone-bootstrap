@@ -11,7 +11,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     this.model.bind('change', this.render);
 
 
-  tagName: "li"
+  tagName: "td"
 
   destroy: () ->
     @model.destroy()

@@ -1,8 +1,9 @@
+<h1>(<%= id %>)</h1>
 <div class="view"><%= content %></div>
 
 <a href="/comments#/<%= id %>/destroy" class="destroy"></a>
 
-<ol class='split'>
+<ol class='todo-array'>
 <%= this.splitted() %>
 </ol>
 <a></a>

@@ -1,6 +1,7 @@
 <h1>Listing posts</h1>
 
-<ul id="posts-list">
-</ul>
+<div id="posts-list" class="accordion" >
+</div>
 
 <br/>
+
