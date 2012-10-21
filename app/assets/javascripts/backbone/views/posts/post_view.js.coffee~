@@ -6,7 +6,9 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "div accordion-group"
+  tagName: "div"
+
+  className: "accordion-group"
 
   destroy: () ->
     @model.destroy()

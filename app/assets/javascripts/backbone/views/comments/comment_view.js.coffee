@@ -5,13 +5,16 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   events:
     "click .destroy" : "destroy"
-    "click .todo-array li": "show_index"
+    "click .todo-array button": "show_index"
 
   initialize: () ->
     this.model.bind('change', this.render);
 
 
+  className: "span4"
   tagName: "td"
+
+
 
   destroy: () ->
     @model.destroy()
@@ -19,16 +22,21 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     return false
 
+#,csrender: function() {
+      #var listed = this.splitted()
+    #this.$el.html(this.template({ list: listed, task: this.model }));
+    #return this;
+
   render: =>
-    #alert('render comment!')
-    #console.log(@model.get('content'))
-    #alert(@model.get('content')) 
-    list0 = @model.toJSON()
+
+    listed2 = this.splitted2()
     
-    #console.log(list0)
-    tmp = @template(list0)
+    comment = @model #.toJSON()
+    tmp = @template(
+      'comment':comment
+      'listed2': listed2
+    )
     
-    #console.log(tmp)
     $(@el).html(tmp)
     return this
   
@@ -39,6 +47,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     #console.log(arr)
     arr
  
+  splitted2: ->
+    str = @model.split()
+    list = "<% _.each(people, function(name) { %> <button class='btn  btn-info btn-block CodeMirror-wrap test'><%= name %></button> <% }); %>";
+    arr = _.template(list, {people : str});
+    #console.log(arr)
+    arr
+ 
+
         
   show_index:   (ev) ->  
     num = $(ev.target).index()
