@@ -1,8 +1,17 @@
-<div class="view"><%= content %></div>
 
-<a href="/comments#/<%= id %>/destroy" class="destroy"></a>
+<div class="todo-array btn-group" >
+<%= listed2 %>
+</div>
 
-<ol class='split'>
-<%= this.splitted() %>
-</ol>
+
+<a>(<%= comment.id %>)</a>
+<div class="view"><%= comment.content %></div>
+
+
+
+
 <a></a>
+<a href="/comments#/<%= comment.id %>/destroy" class="destroy1">kill</a>
+
+
+

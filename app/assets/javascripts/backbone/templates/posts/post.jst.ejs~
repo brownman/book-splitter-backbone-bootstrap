@@ -7,7 +7,7 @@
 
       </div>
     </div>
-    <div id="collapseOne<%= id %>" class="accordion-body collapse">
+    <div id="collapseOne<%= id %>" class="accordion-body collapse in">
       <div class="accordion-inner">
 
 <div class="comments"></div>
