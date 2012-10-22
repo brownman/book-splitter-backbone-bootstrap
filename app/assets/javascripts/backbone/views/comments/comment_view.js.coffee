@@ -6,12 +6,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   events:
     "click .destroy" : "destroy"
     "click .todo-array button": "show_index"
+    #"hover .todo-array button": "show_tooltip"
 
   initialize: () ->
     this.model.bind('change', this.render);
+    console.log(@el)
+  
+  className: 'span4'
 
-
-  className: "span4"
   tagName: "td"
 
 
@@ -28,15 +30,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     #return this;
 
   render: =>
-
     listed2 = this.splitted2()
     
-    comment = @model #.toJSON()
+    comment = @model.toJSON()
     tmp = @template(
-      'comment':comment
+      'comment': comment
       'listed2': listed2
     )
-    
+    console.log(tmp) 
     $(@el).html(tmp)
     return this
   
@@ -54,11 +55,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     #console.log(arr)
     arr
  
-
+  show_tooltip: (ev) ->
+    num = $(ev.target).index()
+    #$(@el).popover({title: 'im the title'})
+    alert(num)
+   
         
   show_index:   (ev) ->  
     num = $(ev.target).index()
-    #alert(num)
     array =     @model.split()
     array[num...num] = ['=']
     text = array.join("")

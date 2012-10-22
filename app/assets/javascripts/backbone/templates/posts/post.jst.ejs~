@@ -1,17 +1,20 @@
   <div class="accordion-heading">
-      <div class="accordion-toggle" data-toggle="collapse" data-parent="#posts-list" href="#collapseOne<%= id %>">
-<a class="title">(<%= id %>)<%= title %></a>
-<a href="#/<%= id %>/edit" class="edit"></a>
-<a href="#/<%= id %>/destroy" class="destroy"></a>
+      <div class="accordion-toggle" data-toggle="collapse" data-parent="#posts-list" href="#collapseOne<%= post.id %>">
+<a class="title">(<%= post.id %>)<%= post.title %></a>
+<a href="#/<%= post.id %>/edit" class="edit"></a>
+<a href="#/<%= post.id %>/destroy" class="destroy"></a>
 
 
       </div>
     </div>
-    <div id="collapseOne<%= id %>" class="accordion-body collapse in">
+    <div id="collapseOne<%= post.id %>" class="accordion-body collapse">
       <div class="accordion-inner">
 
-<div class="comments"></div>
-<div class="new_comment"></div>
+        <div class="new_comment"></div>
+
+        <div class="comments ></div>
+
+
       </div>
     </div>
 

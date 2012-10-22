@@ -3,7 +3,10 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
 
   defaults:
     content: null
-
+  
+  initialize: () -> 
+    console.log(this)
+    #alert('brothers:')
     #save: ->
     #alert('save')
     
@@ -30,9 +33,9 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     story_arr = story_enc.split('$')
     story_arr
 
-  toJSON : () ->
-    json = _.clone(this.attributes);
-    json
+  #toJSON : () ->
+    #json = _.clone(this.attributes);
+    #json
     
 class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Collection
   model: RailsBackboneRelational.Models.Comment

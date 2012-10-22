@@ -11,7 +11,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
   addOne: (comment) =>
     view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
-    @$(".comments-list.tr").append(view.render().el)
+    @$(".comments-list").append(view.render().el)
 
   render: =>
     $(@el).html(@template(comments: @options.comments.toJSON() ))

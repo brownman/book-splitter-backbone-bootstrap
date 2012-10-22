@@ -1,4 +1,4 @@
 <div class="field">
-  <label for="content"> Add Draft:</label>
+  <label for="content"> Add Story:</label>
   <input type="text" name="content" class="content" value="<%= content %>" >
 </div>

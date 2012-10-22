@@ -1,16 +1,23 @@
 
-<div class="todo-array btn-group" >
+<a>(<%= comment.id %>)</a>
+  <div class="field1">
+    <label for="title"> Enter Title:</label>
+
+    <input type="text" name="title1" id="title1" value="<%= comment.content %>" ></input>
+
+    <input type="text" name="title2" id="title2" value="<%= comment.id %>" ></input>
+  </div>
+  
+
+
+<div class="btn-group todo-array " >
 <%= listed2 %>
 </div>
 
 
-<a>(<%= comment.id %>)</a>
-<div class="view"><%= comment.content %></div>
 
 
 
-
-<a></a>
 <a href="/comments#/<%= comment.id %>/destroy" class="destroy">kill</a>
 
 
