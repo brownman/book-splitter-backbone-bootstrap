@@ -3,6 +3,12 @@ RailsBackboneRelational.Views.Comments ||= {}
 class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
   template: JST["backbone/templates/comments/index"]
 
+  events:
+        "hover .comments-list button" : "show_indexes"
+
+  className: 'span12'
+  tagName: 'div' 
+  
   initialize: () ->
     #alert('options: ' + @options.ofer_length)
     @num = @options.ofer_length
@@ -14,6 +20,11 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #alert(num)
 
 
+  show_indexes: (ev) ->
+    num = $(ev.target).index()
+    alert(num)
+    
+
   addAll: () =>
     @options.comments.each(@addOne)
 
@@ -22,11 +33,9 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
       model : comment
     view = new RailsBackboneRelational.Views.Comments.CommentView(abcd)
 
-    alert(view.el.className)
     inta = parseInt(12/@num)
     view.el.className = "span" + inta
 
-    alert(view.el.className)
     @$(".comments-list").append(view.render().el)
 
   render: =>
