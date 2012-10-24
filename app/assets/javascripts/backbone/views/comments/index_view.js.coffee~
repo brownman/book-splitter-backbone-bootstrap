@@ -4,13 +4,29 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
   template: JST["backbone/templates/comments/index"]
 
   initialize: () ->
+    #alert('options: ' + @options.ofer_length)
+    @num = @options.ofer_length
+    #@options.comments.each(@update_span(num))
+    
     @options.comments.bind('reset', @addAll)
+
+  #update_span: (num) =>
+    #alert(num)
+
 
   addAll: () =>
     @options.comments.each(@addOne)
 
   addOne: (comment) =>
-    view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
+    abcd = 
+      model : comment
+    view = new RailsBackboneRelational.Views.Comments.CommentView(abcd)
+
+    alert(view.el.className)
+    inta = parseInt(12/@num)
+    view.el.className = "span" + inta
+
+    alert(view.el.className)
     @$(".comments-list").append(view.render().el)
 
   render: =>

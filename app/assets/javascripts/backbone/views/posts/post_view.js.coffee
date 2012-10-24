@@ -21,7 +21,8 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     return false
 
   render: ->
-    num = @model.get('comments').length
+
+           
     post = @model.toJSON()
     #alert(num)
     tmp = @template(

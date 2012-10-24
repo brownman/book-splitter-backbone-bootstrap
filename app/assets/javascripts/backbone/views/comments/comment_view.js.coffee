@@ -6,13 +6,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   events:
     "click .destroy" : "destroy"
     "click .todo-array button": "show_index"
+
     #"hover .todo-array button": "show_tooltip"
 
   initialize: () ->
     this.model.bind('change', this.render);
-    console.log(@el)
   
-  className: 'span4'
+  className: 'sspann'
 
   tagName: "td"
 
@@ -37,7 +37,6 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       'comment': comment
       'listed2': listed2
     )
-    console.log(tmp) 
     $(@el).html(tmp)
     return this
   

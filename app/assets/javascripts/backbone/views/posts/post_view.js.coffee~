@@ -22,11 +22,18 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
 
   render: ->
     num = @model.get('comments').length
+    comments = @model.get('comments')
+
+    for comment in comments
+       do (comment) ->
+         console.log( comment)
+         #('span') = num 
+           
     post = @model.toJSON()
     #alert(num)
     tmp = @template(
       'post': post
-      'length':    num 
+      #'length':    num 
     )
     $(@el).html(tmp)
     return this

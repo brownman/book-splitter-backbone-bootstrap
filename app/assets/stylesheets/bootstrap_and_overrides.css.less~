@@ -1,6 +1,7 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
 
+
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
@@ -26,6 +27,7 @@
 //
 // Example:
 // @linkColor: #ff0000;
+
 div.new_comment {
 background-color:#bfc4de;
 
@@ -34,7 +36,9 @@ background-color:#bfc4de;
 
 td {
 padding-top: 1em;
-vertical-align:top;
+/*
+ *vertical-align:top;
+ */
 text-align:left;
 height: 100%;
 
@@ -42,10 +46,8 @@ height: 100%;
 }
 tr {
 /*
- *width: 200%;
+ *width: 100%;
  */
-overflow-x:scroll;
-
 }
 
 button { 
@@ -67,6 +69,7 @@ text-align: left;
 
 border:2px solid #000000;
 
+width:20%;
 }
 
 .test
@@ -78,9 +81,11 @@ border:2px solid #000000;
 
 
 
-text-align:justify;
+/*
+ *text-align:justify;
+ */
 
-white-space:nowrap;
+white-space:pre;
 /*
  *overflow:hidden; 
  */

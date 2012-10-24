@@ -21,10 +21,25 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
 
       @collection.create(@model.toJSON(),
         success: (comment) =>
-          #alert('success')
+
           view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
-          $(@.el).parent().prev().find('.comments-list').append(view.render().el)
-          @$('.content').val('')
+          tmp =  view.render().el
+          #tmp0 = $(@.el).parent().parent().attr("id");
+
+          tmp1 = $(@.el).parent().parent().find('.comments-list')
+            #.attr("class");
+
+
+          #alert('id: ' + tmp0)
+          #alert('class: ' + tmp1)
+          #console.log(tmp0.class)
+
+          tmp2 = $(@.el).parent().prev().find('.comments-list')
+          console.log(tmp2)
+          $(tmp1).append(tmp)
+
+          # $("#posts-list").prepend(view.render().el)
+          @$('.content').val('good')
 
         error: (comment, jqXHR) =>
           alert('error')
