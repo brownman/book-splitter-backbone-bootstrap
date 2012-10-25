@@ -5,8 +5,11 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   events:
     "click .destroy" : "destroy"
-    "click .todo-array button": "show_index"
+    "dblclick .todo-array button": "show_index"
 
+    "click .todo-array button": "whiteSpaceCheck"
+    "click .check"              : "toggleDone" 
+    
     #"hover .todo-array button": "show_tooltip"
 
   initialize: () ->
@@ -16,7 +19,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   tagName: "td"
 
-
+  toggleDone : () ->
+    return
 
   destroy: () ->
     @model.destroy()
@@ -60,12 +64,23 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     alert(num)
    
         
-  show_index:   (ev) ->  
-    num = $(ev.target).index()
+  show_index:   (ev) -> 
+    item =  $(ev.target)
+    num =(item).index()
     array =     @model.split()
     array[num...num] = ['=']
     text = array.join("")
     @model.save( 
      content: text 
     )
+    
+  whiteSpaceCheck:   (ev) -> 
+    item =  $(ev.target)
+
+    $(item).toggleClass("test1");
+    num =(item).index()
+    
+   
+
+
         

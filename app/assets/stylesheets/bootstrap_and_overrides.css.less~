@@ -1,5 +1,7 @@
 @import "twitter/bootstrap/bootstrap";
-@import "twitter/bootstrap/responsive";
+/*
+ *@import "twitter/bootstrap/responsive";
+ */
 
 
 // Set the correct sprite paths
@@ -106,5 +108,10 @@ white-space:normal;
 border:1px solid #0000ff;
 font-stretch:expanded;
 font-weight:bold;
+transition-delay: 11s;
 }
+.test1{
+
+}
+
 
