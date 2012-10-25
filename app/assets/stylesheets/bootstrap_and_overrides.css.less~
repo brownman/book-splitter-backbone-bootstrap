@@ -101,17 +101,27 @@ border:1px solid #000000;
 
 }
 
-.test:hover {
+.test2:hover {
 
 white-space:normal;
 
 border:1px solid #0000ff;
 font-stretch:expanded;
 font-weight:bold;
-transition-delay: 11s;
+/*
+ *transition-delay: 1s;
+ */
 }
 .test1{
 
+white-space:normal;
+
+border:1px solid #ff0000;
+font-stretch:expanded;
+font-weight:bold;
+/*
+ *transition-delay: 1s;
+ */
 }
 
 

@@ -3,7 +3,7 @@
 
 <input class='span12' type='text' value='<%= comment.content %>'></input>
 
-          <input class="check" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+
 
 
 <div class="btn-group todo-array " >
@@ -17,6 +17,7 @@
 
 <a href="/comments#/<%= comment.id %>/destroy" class="destroy">kill</a>
 
+<input class="check" type="checkbox" <%= comment.done ? 'checked="checked"' : '' %> />
 
 </div>
 
