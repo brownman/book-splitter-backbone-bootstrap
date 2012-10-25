@@ -1,5 +1,5 @@
-<div >
-<input class='span9' type='text' value='<%= comment.content %>'></input>
+<td>
+<input class='span12' type='text' value='<%= comment.content %>'></input>
 
 
 
@@ -14,5 +14,5 @@
 <a href="/comments#/<%= comment.id %>/destroy" class="destroy">kill</a>
 
 
-</div>
+</td>
 

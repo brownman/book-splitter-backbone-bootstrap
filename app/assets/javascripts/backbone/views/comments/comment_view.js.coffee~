@@ -12,8 +12,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   initialize: () ->
     this.model.bind('change', this.render);
   
+  className: 'sspann'
 
-  tagName: "td"
+  tagName: "div"
 
 
 
