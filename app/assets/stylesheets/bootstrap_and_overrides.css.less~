@@ -36,7 +36,7 @@ background-color:#bfc4de;
 }
 
 
-td {
+td.div {
 padding-top: 1em;
 /*
  *vertical-align:top;
@@ -116,7 +116,7 @@ font-weight:bold;
 
 white-space:normal;
 
-border:1px solid #ff0000;
+border:2px solid #ff0000;
 font-stretch:expanded;
 font-weight:bold;
 /*

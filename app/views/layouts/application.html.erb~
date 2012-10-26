@@ -10,7 +10,7 @@
   </head>
   <body width='100%'>
 
-    <div class="container-fluid" >
+    <div width='100%' class="container-fluid" >
 
       <div class="row-fluid">
         <div class='span12' >

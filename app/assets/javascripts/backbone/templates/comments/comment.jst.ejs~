@@ -17,7 +17,6 @@
 
 <a href="/comments#/<%= comment.id %>/destroy" class="destroy">kill</a>
 
-<input class="check" type="checkbox" <%= comment.done ? 'checked="checked"' : '' %> />
 
 </div>
 
