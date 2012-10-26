@@ -76,9 +76,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     
   whiteSpaceCheck:   (ev) -> 
     item =  $(ev.target)
-
-    $(item).toggleClass("test1");
-    num =(item).index()
+    str = item.context.innerText
+    
+    if(str != '=')
+     $(item).toggleClass("test1");
+     num =(item).index()
+    else
+     @show_index(ev)
     
    
 

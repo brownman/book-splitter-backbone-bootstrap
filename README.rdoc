@@ -1,17 +1,12 @@
-release v0.1.1
-
-== Sample Backbone App using Backbone-relational
-
-This is a sample Backbone app that uses a Rails backend, the rails-backbone gem for
-integrating Backbone, and the Backbone-relational lib to maintain relations in 
-Backbone. Slightly inspired by the example Todo app in the Backbone docs.
-You can find a working demo here http://rails-backbone-relational.herokuapp.com/posts
-This demo uses a localStorage adapter and doesn't actually store anything on the DB.
-I've also written up a blog post explaining the key aspects of this demo app. You
-can find it at http://rohitnair.info/?p=236
+book-splitter for smartphones
+-----------------------------
 
 
-* rails-backbone gem https://github.com/codebrew/backbone-rails
-* Backbone-relational https://github.com/PaulUithol/Backbone-relational
-* Backbone Todos http://documentcloud.github.com/backbone/examples/todos/index.html
-* Backbone.localStorage https://github.com/jeromegn/Backbone.localStorage
+todo: 
+- explenation page : implement a nav bar
+- font size - resize screen with touch events
+- individual db - user authenticate
+- switch for: right to left paragraph
+
+==based on: Sample Backbone App using Backbone-relational
+
