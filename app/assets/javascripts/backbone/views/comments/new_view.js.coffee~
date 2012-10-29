@@ -4,7 +4,7 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
   template: JST["backbone/templates/comments/new"]
 
   events:
-    "keypress .content": "save"
+    "submit .field1": "save"
 
   constructor: (options) ->
     super(options)
@@ -15,34 +15,25 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
     )
 
   save: (e) ->
-    if e.keyCode == 13 and @$('.content').val() != ''
+    #e.keyCode == 13 and
+    if @$('.content').val() != ''
       @model.unset("errors")
       @model.set('content', @$('.content').val())
-
+      @model.set('title', @$('.title').val())
+      @model.set('direction', false)
       @collection.create(@model.toJSON(),
         success: (comment) =>
-
+          alert('success')
           view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
           tmp =  view.render().el
-          #tmp0 = $(@.el).parent().parent().attr("id");
-
           tmp1 = $(@.el).parent().parent().find('.comments-list')
-            #.attr("class");
-
-
-          #alert('id: ' + tmp0)
-          #alert('class: ' + tmp1)
-          #console.log(tmp0.class)
-
-          tmp2 = $(@.el).parent().prev().find('.comments-list')
-          console.log(tmp2)
           $(tmp1).append(tmp)
-
-          # $("#posts-list").prepend(view.render().el)
           @$('.content').val('good')
+          @$('.title').val('good1')
 
         error: (comment, jqXHR) =>
-          alert('error')
+          alert(comment)
+          console.log(comment)
           @model.set({errors: $.parseJSON(jqXHR.responseText)})
       )
 

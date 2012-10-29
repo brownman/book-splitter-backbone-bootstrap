@@ -70,7 +70,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     array =     @model.split()
     array[num...num] = ['=']
     text = array.join("")
-    @model.save( 
+    @model.update( 
      content: text 
     )
     
