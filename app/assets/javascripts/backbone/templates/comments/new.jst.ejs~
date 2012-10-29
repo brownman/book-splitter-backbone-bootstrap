@@ -1,4 +1,4 @@
-<div class="field">
-  <label for="content"> Add Story:</label>
-  <input type="text" name="content" class="content" value="<%= content %>" >
-</div>
+<div  class="field1 span12" height='1em' >
+  <label for="content"> Add Draft:</label>
+  <textarea  rows="1" wrap="hard" type="text" name="content" class="content" value="<%= content %>" />
+</div>  

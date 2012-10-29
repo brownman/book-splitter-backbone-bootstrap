@@ -3,10 +3,23 @@ book-splitter for smartphones
 
 
 todo: 
+- text to ascii - dealing with endl - on song-texts
+- db - add element to story: right-to-left:boolean, title:string
+- using db - to store array structure
+- making js interaction more fast - dont save each edit on column
+- resize font with touch events (or else)
+- preformance: don't pull collection as default
+
+
 - explenation page : implement a nav bar
 - font size - resize screen with touch events
 - individual db - user authenticate
 - switch for: right to left paragraph
+
+- be able to add cards - quizes
+- using git more smartly
+- accomplish d' exam
+
 
 ==based on: Sample Backbone App using Backbone-relational
 

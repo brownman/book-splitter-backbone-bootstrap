@@ -3,5 +3,17 @@
 <div id="posts-list" class="accordion" >
 </div>
 
-<br/>
+
+
+
+
+
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'bg'
+}, 'google_translate_element');
+}
+</script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<iframe src="http://www.kid.ru/pesenki/1.php3" width="200" height="200"></iframe>
 

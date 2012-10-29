@@ -3,7 +3,6 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
 
   defaults:
     content: null
-    done: false
   
   #initialize: () -> 
     #console.log(this)
@@ -28,16 +27,19 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
   split : () ->
     str = @get('content')
     story_enc = str 
-    story_enc =  story_enc.replace(/\n/g, " ")
-    arr_symbols = [',', '!', '.', "?", ":", ";", "=" ]
+    #    story_enc =  story_enc.replace(/\n/g, "^")
+    arr_symbols = [',', '!', '.', "?", ":", ";", "=", "\n" ]
     story_enc = @replace(story_enc, arr_symbols)
     story_arr = story_enc.split('$')
     story_arr
 
-  #toJSON : () ->
-    #json = _.clone(this.attributes);
-    #json
+  toJSON1 : () ->
+    json = _.clone(this.attributes);
+    console.log(json)
+    json
     
+    #validate: () ->
+     
 class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Collection
   model: RailsBackboneRelational.Models.Comment
   url: '/comments'
