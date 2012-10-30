@@ -1,18 +1,24 @@
-<div >
-
-
-
-
-<input  height='1em' class='span12' type='text' value='<%= comment.title %>'></input>
-<input  height='1em' class='span12' type='text' value='<%= comment.direction %>'></input>
-
-<input  height='1em' class='span12' type='text' value='<%= comment.content %>'></input>
+<div class='span12' >
 
 
 
 
 
-<div class="btn-group todo-array " >
+
+<input height='1em'  name="content" value='<%= obj.content %>' />
+
+<textarea  rows="2" cols="20" class='content' name="content" value='<%= obj.content %>' />
+<input  height='1em' type='text' value='<%= obj.title %>'></input>
+
+
+
+<input  rows="1" type="checkbox" name="direction" class="direction" <%= obj.direction ? 'checked="checked"' : '' %>  />
+
+
+
+
+<div class="btn-group todo-array "  <%= obj.direction ? 'dir="rtl"' : '' %>  >
+
 <%= listed2 %>
 </div>
 
@@ -21,7 +27,7 @@
 
 
 
-<a href="/comments#/<%= comment.id %>/destroy" class="destroy">kill</a>
+<a href="/comments#/<%= obj.id %>/destroy" class="destroy">kill</a>
 
 
 </div>

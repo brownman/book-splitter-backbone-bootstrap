@@ -8,7 +8,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "dblclick .todo-array button": "show_index"
 
     "click .todo-array button": "whiteSpaceCheck"
-    "click .check"              : "toggleDone" 
+    "click .direction"              : "toggleDone" 
     
     #"hover .todo-array button": "show_tooltip"
 
@@ -20,7 +20,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   tagName: "td"
 
   toggleDone : () ->
-    return
+    @model.save(
+    
+      direction : !direction
+    )
+
+
+    
 
   destroy: () ->
     @model.destroy()
@@ -38,7 +44,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     
     comment = @model.toJSON()
     tmp = @template(
-      'comment': comment
+      'obj': comment
       'listed2': listed2
     )
     $(@el).html(tmp)
@@ -70,7 +76,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     array =     @model.split()
     array[num...num] = ['=']
     text = array.join("")
-    @model.update( 
+    @model.save( 
      content: text 
     )
     

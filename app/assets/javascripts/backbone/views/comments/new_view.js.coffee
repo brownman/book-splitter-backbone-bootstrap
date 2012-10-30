@@ -15,12 +15,19 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
     )
 
   save: (e) ->
+    
+    e.preventDefault();
     #e.keyCode == 13 and
     if @$('.content').val() != ''
       @model.unset("errors")
       @model.set('content', @$('.content').val())
       @model.set('title', @$('.title').val())
-      @model.set('direction', false)
+
+
+      checked = @$('.direction').is(':checked');
+
+      @model.set('direction', checked)
+      
       @collection.create(@model.toJSON(),
         success: (comment) =>
           alert('success')
@@ -33,8 +40,12 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
 
         error: (comment, jqXHR) =>
           alert('error')
+
           console.log(comment)
+          console.log(jqXHR)
           @model.set({errors: $.parseJSON(jqXHR.responseText)})
+        
+        #Backbone.history.navigate('', true);
       )
 
   render: ->
