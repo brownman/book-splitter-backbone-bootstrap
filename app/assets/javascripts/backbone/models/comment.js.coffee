@@ -3,6 +3,8 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
 
   defaults:
     content: null
+    direction: true
+    title: null
   
   #initialize: () -> 
     #console.log(this)
