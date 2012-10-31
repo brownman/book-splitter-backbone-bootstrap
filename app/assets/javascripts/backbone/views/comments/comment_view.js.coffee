@@ -4,7 +4,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   template: JST["backbone/templates/comments/comment"]
  
   @array = []
-  @status = 'false'
+  @status = 'saved'
 
   events:
     "click .destroy" : "destroy"
@@ -22,8 +22,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     @status = 'false'
 
     #@update_status(false)
-    this.model.bind('change', this.render);
-
+    
+    @status = 'saved!'
+    this.model.bind('change', this.before_render);
+ 
+  before_render:() =>
+    @status = 'saved'
+    @render()
+  
     
   get_array: () ->
     @array
@@ -83,10 +89,11 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     array =    @get_array()
     array[num...num] = ['=']
     @array = array
-    @update_status('true')
+    #@update_status('true')
+    @status = 'not saved!'
     @render()
-
-  update_status: (sign) ->
+  
+  update_status2: (sign) ->
     item = @$('.save')
     console.log(item)
     if(sign)

@@ -17,7 +17,13 @@
 
 
 
-<input class="save btn" type="button" value='<%= status  %>' />
+<input width='0px' class="btn save" type="button" value="<%= obj2  %>" />
+
+<button width='0px' class="btn save" type="submit">
+<%= obj2  %>
+</button>
+
+<input class="btn save" type="button" value="<%= obj2  %>"> 
 
 <div class="btn-group todo-array "  <%= obj.direction ? 'dir="rtl"' : '' %>  >
 
