@@ -20,9 +20,4 @@
 //= require backbone_datalink
 //= require backbone-localstorage
 //= require backbone/rails_backbone_relational
-//= require underscore
-//= require backbone
-//= require backbone_rails_sync
-//= require backbone_datalink
-//= require backbone/rails_backbone_relational
 //= require_tree .

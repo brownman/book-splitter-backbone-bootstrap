@@ -4,11 +4,12 @@
 
 
 
+<input  class='span6' height='1em' type='text' value='<%= obj.title %>'></input>
 
-<input height='1em'  name="content" value='<%= obj.content %>' />
 
-<textarea  rows="2" cols="20" class='content' name="content" value='<%= obj.content %>' />
-<input  height='1em' type='text' value='<%= obj.title %>'></input>
+<input height='1em'  class='span3' name="content" value='<%= obj.content %>' />
+
+
 
 
 
@@ -16,8 +17,9 @@
 
 
 
+<input class="save btn" type="button" value='<%= status  %>' />
 
-<div class="btn-group todo-array "  <%= obj.direction ? 'direction="rtl"' : '' %>  >
+<div class="btn-group todo-array "  <%= obj.direction ? 'dir="rtl"' : '' %>  >
 
 <%= listed2 %>
 </div>

@@ -1,6 +1,8 @@
 @import "twitter/bootstrap/bootstrap";
 
-@import "twitter/bootstrap/responsive";
+/*
+ *@import "twitter/bootstrap/responsive";
+ */
 
 
 
@@ -29,11 +31,6 @@
 //
 // Example:
 // @linkColor: #ff0000;
-
-div.new_comment {
-background-color:#bfc4de;
-
-}
 
 
 td {
