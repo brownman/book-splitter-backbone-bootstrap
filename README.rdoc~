@@ -8,7 +8,7 @@ todo:
 - using db - to store array structure
 - making js interaction more fast - dont save each edit on column
 - resize font with touch events (or else)
-- don't pull collection as default
+- preformance: don't pull collection as default
 
 
 - explenation page : implement a nav bar

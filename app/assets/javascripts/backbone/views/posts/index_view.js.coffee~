@@ -15,18 +15,13 @@ class RailsBackboneRelational.Views.Posts.IndexView extends Backbone.View
     
     comments1 = post.get('comments')
     num = comments1.length
-    alert(num)
 
-    for comment in comments1.models
-       do (comment) ->
-         console.log( this.comment.el.className)
-         #('span') = num 
 
     view = new RailsBackboneRelational.Views.Posts.PostView({model : post})
     @$("#posts-list").prepend(view.render().el)
     abc = 
-      comments: post.get('comments')
-      ofer_length: comment.length
+      comments: comments1
+      ofer_length: num
 
     comments_view = new RailsBackboneRelational.Views.Comments.IndexView(abc) 
     view.$(".comments").html(comments_view.render().el)

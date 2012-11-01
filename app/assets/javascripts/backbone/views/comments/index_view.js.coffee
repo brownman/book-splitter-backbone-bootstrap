@@ -15,6 +15,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #@options.comments.each(@update_span(num))
     
     @options.comments.bind('reset', @addAll)
+     
 
   #update_span: (num) =>
     #alert(num)
@@ -27,6 +28,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     
 
   addAll: () =>
+    #console.log(@options.comments)
     @options.comments.each(@addOne)
 
   addOne: (comment) =>

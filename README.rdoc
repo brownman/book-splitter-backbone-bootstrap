@@ -3,6 +3,7 @@ book-splitter for smartphones
 
 
 todo: 
+- post will not fetch comments anless user click on a post
 - text to ascii - dealing with endl - on song-texts
 - db - add element to story: right-to-left:boolean, title:string
 - using db - to store array structure

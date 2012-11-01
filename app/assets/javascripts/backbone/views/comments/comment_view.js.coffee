@@ -3,7 +3,7 @@ RailsBackboneRelational.Views.Comments ||= {}
 class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   template: JST["backbone/templates/comments/comment"]
  
-  @array = []
+  
   @status = 'saved'
 
   events:
@@ -18,7 +18,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     #"hover .todo-array button": "show_tooltip"
 
   initialize: () ->
-    @array =     @model.split()
+    
     @status = 'false'
 
     #@update_status(false)
@@ -32,7 +32,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   
     
   get_array: () ->
-    @array
+    @model.array
 
   className: 'sspann'
 

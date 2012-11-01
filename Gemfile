@@ -44,10 +44,10 @@ gem 'twitter-bootstrap-rails'
 gem 'rails-backbone', '0.7.0'
 
 gem 'thin'
-
+gem 'jasmine'
+gem 'jasminerice'
+  
 group :development, :test do
-  gem 'jasmine'
-  gem 'jasminerice'
   gem 'guard'
   gem 'guard-jasmine'
   gem 'guard-coffeescript'
