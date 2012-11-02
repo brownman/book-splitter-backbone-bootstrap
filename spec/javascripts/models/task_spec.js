@@ -1,3 +1,4 @@
+return;
 describe('TodoList.Models.Task', function() {
 
   it('should be defined', function() {

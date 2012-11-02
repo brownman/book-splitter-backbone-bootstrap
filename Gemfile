@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
 gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
@@ -53,6 +54,7 @@ group :development, :test do
   gem 'guard-coffeescript'
   gem 'guard-livereload'
   gem 'sqlite3'
+  gem 'rb-inotify', '~> 0.8.8'
 end
 
 

@@ -1,5 +1,5 @@
 # use require to load any .js file available to the asset pipeline
-
+return;
 describe "Foo", ->
   loadFixtures 'baz' # located at 'spec/javascripts/fixtures/baz.html.haml'
   it "it is not bar", ->

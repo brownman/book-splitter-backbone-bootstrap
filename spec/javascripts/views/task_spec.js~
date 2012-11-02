@@ -1,4 +1,3 @@
-return;
 describe('TodoList.Views.Task', function () {
   it('should be defined', function() {
     expect(TodoList.Views.Task).toBeDefined();

@@ -1,7 +1,8 @@
+return;
 describe('TodoList.Models.Task', function() {
 
   it('should be defined', function() {
-    expect(TodoList.Models.Taskii).toBeDefined();
+    expect(TodoList.Models.Task).toBeDefined();
   });
 
   var task;

@@ -1,4 +1,3 @@
-return;
 describe('TodoList.Views.List', function () {
 
   it('should be defined', function() {

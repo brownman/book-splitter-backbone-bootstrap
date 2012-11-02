@@ -98,7 +98,7 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
       if ( num1 == length_i)
         for i in [0...length_i]
           this.models[i].array[j..j] = [] 
-          this.models[i].save
+          
 
     
 

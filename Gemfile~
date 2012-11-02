@@ -48,12 +48,12 @@ gem 'jasmine'
 gem 'jasminerice'
   
 group :development, :test do
-
   gem 'guard'
   gem 'guard-jasmine'
   gem 'guard-coffeescript'
   gem 'guard-livereload'
   gem 'sqlite3'
+  gem 'rb-inotify', '~> 0.8.8'
 end
 
 

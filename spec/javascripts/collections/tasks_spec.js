@@ -1,3 +1,4 @@
+return;
 describe('TodoList.Collections.Tasks', function() {
 
   it('should be defined', function() {
@@ -13,7 +14,6 @@ describe('TodoList.Collections.Tasks', function() {
 
   describe('#fetch', function() {
 
-    alert('collection')
     var server = null;
     beforeEach(function() {
       server = sinon.fakeServer.create();

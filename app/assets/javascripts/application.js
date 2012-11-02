@@ -21,3 +21,7 @@
 //= require backbone-localstorage
 //= require backbone/rails_backbone_relational
 //= require_tree .
+
+alert =  (msg) ->
+ console.log(this)
+ window.alert(msg)
