@@ -1,4 +1,8 @@
-TodoList.Models.Task = Backbone.Model.extend({
+
+/*
+ *TodoList.Models.Task
+ */
+window.Task = Backbone.Model.extend({
 
   defaults: {
     name: '',
@@ -74,7 +78,10 @@ var str  = this.get('name')
 
 
 });
-TodoList.Collections.Tasks = Backbone.Collection.extend({
+/*
+ *TodoList.Collections.Tasks 
+ */
+window.Tasks= Backbone.Collection.extend({
 
   url: '/tasks.json',
   model: TodoList.Models.Task,

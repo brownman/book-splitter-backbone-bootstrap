@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require underscore
 //= require backbone
 //= require backbone-relational
@@ -22,6 +22,3 @@
 //= require backbone/rails_backbone_relational
 //= require_tree .
 
-alert =  (msg) ->
- console.log(this)
- window.alert(msg)

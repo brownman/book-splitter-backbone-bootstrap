@@ -17,7 +17,8 @@ gem 'jquery-rails', '2.0.2'
 
 #gem 'twitter-bootstrap-rails'
 
-#gem 'rails-backbone', '0.7.0'
+gem 'rails-backbone'
+#, '0.7.0'
 
 #gem 'thin'
 
