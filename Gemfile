@@ -4,7 +4,12 @@ source 'https://rubygems.org'
 
 #gem 'bundler', '1.2.0.pre'
 gem 'rails', '3.2.3'
+
+
 gem 'sqlite3'
+group :development,:test do
+
+end
 
 
 
