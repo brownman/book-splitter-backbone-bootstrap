@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
+//= require bootstrap-modal
+//= require bootstrap-collapse
 //= require underscore
 //= require backbone
 //= require backbone-relational

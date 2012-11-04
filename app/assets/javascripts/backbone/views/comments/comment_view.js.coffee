@@ -72,7 +72,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
  
   splitted2: ->
     arr0 = @get_array()
-    list = "<% _.each(people, function(name) { %> <button class='btn  btn-info btn-block CodeMirror-wrap test'><%= name %></button> <% }); %>";
+    list = "<% _.each(people, function(name) { %> <button class='btn  btn-info btn-block test'><%= name %></button> <% }); %>";
     arr = _.template(list, {people : arr0});
     #console.log(arr)
     arr

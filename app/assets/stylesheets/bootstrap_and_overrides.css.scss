@@ -2,13 +2,7 @@
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
 
 /* universal */
 div.new_comment {
@@ -34,7 +28,7 @@ tr {
 
 button { 
 text-align: left;
-
+width: 100%;
 /*
  *padding-left: 0px; 
  */
@@ -81,7 +75,7 @@ border:1px solid #000000;
 
 }
 
-.test2:hover {
+.test:hover {
 
 white-space:normal;
 
@@ -105,4 +99,10 @@ font-weight:bold;
 }
 
 
+.direction {
 
+/*
+ *padding-left:0;
+ */
+
+}

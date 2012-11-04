@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-collapse
 //= require underscore
 //= require backbone
 //= require backbone-relational

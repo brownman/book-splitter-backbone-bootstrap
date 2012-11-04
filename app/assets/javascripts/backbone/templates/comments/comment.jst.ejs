@@ -4,22 +4,23 @@
 
 
 
-<input  class='span6' height='1em' type='text' value='<%= obj.title %>'></input>
+<input  type="checkbox" name="direction" class="checkbox span12" <%= obj.direction ? 'checked="checked"' : '' %>  />
+<input  class='span12' height='1em' type='text' value='<%= obj.title %>'></input>
 
 
-<input height='1em'  class='span3' name="content" value='<%= obj.content %>' />
-
-
-
-
-
-<input  rows="1" type="checkbox" name="direction" class="direction" <%= obj.direction ? 'checked="checked"' : '' %>  />
+<input height='1em'  class='span12' name="content" value='<%= obj.content %>' />
 
 
 
 
 
-<input class="btn save" type="button" value="<%= obj2  %>"> 
+
+
+
+
+
+
+<input class="btn save span12" type="button" value="<%= obj2  %>"> 
 
 <div class="btn-group todo-array "  <%= obj.direction ? 'dir="rtl"' : '' %>  >
 
