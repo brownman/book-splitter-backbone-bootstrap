@@ -1,19 +1,32 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
-gem 'rails', '3.2.2'
+#ruby '1.9.3'
+
+#gem 'bundler', '1.2.0.pre'
+gem 'rails', '3.2.3'
+gem 'sqlite3'
+
+
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
 group :production do
+
+  gem "heroku"
   gem 'pg'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+
+  gem 'less-rails'
+  gem 'therubyracer'
+  gem 'libv8', '3.3.10.4'
+
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -53,7 +66,7 @@ group :development, :test do
   gem 'guard-jasmine'
   gem 'guard-coffeescript'
   gem 'guard-livereload'
-  gem 'sqlite3'
+
   gem 'rb-inotify', '~> 0.8.8'
 end
 
