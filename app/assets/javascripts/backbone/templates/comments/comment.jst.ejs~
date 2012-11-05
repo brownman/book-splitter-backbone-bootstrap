@@ -4,7 +4,7 @@
 
 
 
-<input  type="checkbox" name="direction" class="checkbox span6" <%= obj.direction ? 'checked="checked"' : '' %>  />
+<input  type="checkbox" name="direction" class="checkbox span12" <%= obj.direction ? 'checked="checked"' : '' %>  />
 <input  class='span12' height='1em' type='text' value='<%= obj.title %>'></input>
 
 
