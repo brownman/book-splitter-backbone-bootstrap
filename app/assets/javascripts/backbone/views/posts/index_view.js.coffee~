@@ -9,13 +9,13 @@ class RailsBackboneRelational.Views.Posts.IndexView extends Backbone.View
   addAll: () =>
     @view = new RailsBackboneRelational.Views.Posts.NewView(collection: @options.posts)
     $("#new_post").html(@view.render().el)
-    @options.posts.each(@addOne)
+    #@options.posts.each(@addOne)
 
   addOne: (post) =>
     
     comments1 = post.get('comments')
     num = comments1.length
-
+    
 
     view = new RailsBackboneRelational.Views.Posts.PostView({model : post})
     @$("#posts-list").prepend(view.render().el)
