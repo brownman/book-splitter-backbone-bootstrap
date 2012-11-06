@@ -4,11 +4,13 @@
 
 
 
-<input  type="checkbox" name="direction" class="checkbox span12" <%= obj.direction ? 'checked="checked"' : '' %>  />
+<input  type="checkbox" name="direction" class="direction checkbox span12" <%= obj.direction ? 'checked="checked"' : '' %>  />
 <input  class='span12' height='1em' type='text' value='<%= obj.title %>'></input>
 
+<input tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj3 %>'></input>
 
-<input height='1em'  class='span12' name="content" value='<%= obj.content %>' />
+
+<input height='1em'  class=' span12' name="content" value='<%= obj.content %>' />
 
 
 

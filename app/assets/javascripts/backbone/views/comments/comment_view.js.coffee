@@ -4,27 +4,26 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   template: JST["backbone/templates/comments/comment"]
  
   
-  @status = 'saved'
+  this.log = _.bind(alert, console);
+
 
   events:
     "click .destroy" : "destroy"
-    "dblclick .todo-array button": "show_index"
+    "dblclick .todo-array button": "push_index"
 
     "click .todo-array button": "whiteSpaceCheck"
 
     "click .direction"              : "toggleDone" 
     "click .save"              : "save_array" 
+
+    "blur .seconds"              : "set_delay" 
     
     #"hover .todo-array button": "show_tooltip"
 
   initialize: () ->
-    
-    @status = 'false'
-
-    #@update_status(false)
-    
-    @status = 'saved!'
-    this.model.bind('change', this.before_render);
+   @status = 'saved'
+   @seconds = 10
+   this.model.bind('change', this.before_render);
  
   before_render:() =>
     @status = 'saved'
@@ -60,10 +59,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     
     comment = @model.toJSON()
     status = @status.toString()
+    seconds = @seconds.toString()
+    
     tmp = @template(
       'obj': comment
       'listed2': listed2
       'obj2': status
+      'obj3': seconds
     )
     $(@el).html(tmp)
     
@@ -83,7 +85,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     alert(num)
    
         
-  show_index:   (ev) -> 
+  push_index:   (ev) -> 
     item =  $(ev.target)
     num =(item).index()
     array =    @get_array()
@@ -110,16 +112,23 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
      content: text 
     )
     
+
+  
   whiteSpaceCheck:   (ev) -> 
-    item =  $(ev.target)
-    str = item.context.innerText
-    
+    item =  ev.target
+    str = $(item).context.innerText
     if(str != '=')
-     $(item).toggleClass("test1");
-     num =(item).index()
+     _.delay(_.bind(this.something, item), @seconds * 1000 , 'logged later') 
+     $(item).toggleClass("test1") 
     else
-     @show_index(ev)
-    
+     @push_index(ev)
+  
+  something: (msg) ->
+     $(this).toggleClass("test1") 
+  
+  set_delay: (ev) ->
+    @seconds = ev.target.value
+    console.log(@seconds) 
    
 
 

@@ -6,3 +6,6 @@ jQuery ->
    toggle: true 
   })
   console.log('start')
+
+  #fn.do_ping: () =>
+    #alert('ping')
