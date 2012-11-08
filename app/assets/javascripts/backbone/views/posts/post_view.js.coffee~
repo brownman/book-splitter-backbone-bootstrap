@@ -5,6 +5,9 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
 
   events:
     "click .destroy" : "destroy"
+    #"click .submit" : "update"
+    #"dblclick a.todo-content" : "edit",
+    "keypress .title"      : "updateOnEnter"
 
   initialize: () ->
     #alert('init post')
@@ -20,14 +23,23 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
 
     return false
 
-  render: ->
-    num = @model.get('comments').length
-    comments = @model.get('comments')
+  #update: ->
+     
+     #this.model.save(
+      #title: tmp 
+    #)
+    #
+    #
+  updateOnEnter: (e) =>
+    if e.keyCode is 13
+      console.log(e)
+      @input = this.$(".title");
+      console.log(@input)
+    #@model.save({ title: @input.val() })
+    #$(@el).removeClass("editing")
 
-    for comment in comments
-       do (comment) ->
-         console.log( comment)
-         #('span') = num 
+  render: ->
+
            
     post = @model.toJSON()
     #alert(num)

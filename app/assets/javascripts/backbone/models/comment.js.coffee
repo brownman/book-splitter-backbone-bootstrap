@@ -29,6 +29,7 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     #save: ->
     #alert('save')
     
+
   equal1: (a,b,c) ->
     #alert(a + '|' + '|' +c)
 

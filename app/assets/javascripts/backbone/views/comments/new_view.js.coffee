@@ -40,7 +40,6 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
 
         error: (comment, jqXHR) =>
           alert('error')
-
           console.log(comment)
           console.log(jqXHR)
           @model.set({errors: $.parseJSON(jqXHR.responseText)})

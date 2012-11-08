@@ -60,7 +60,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     comment = @model.toJSON()
     status = @status.toString()
     seconds = @seconds.toString()
-    
+   
+    console.log(comment)
     tmp = @template(
       'obj': comment
       'listed2': listed2

@@ -29,6 +29,11 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     #save: ->
     #alert('save')
     
+  validate: (attrs) -> 
+    if (attrs.hasOwnProperty('direction') && !_.isBoolean(attrs.done)) 
+       return 'attr.direction must be a boolean value.';
+            
+        
   equal1: (a,b,c) ->
     #alert(a + '|' + '|' +c)
 

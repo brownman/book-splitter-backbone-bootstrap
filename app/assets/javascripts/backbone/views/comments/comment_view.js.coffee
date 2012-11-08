@@ -17,6 +17,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "click .save"              : "save_array" 
 
     "blur .seconds"              : "set_delay" 
+
+
     
     #"hover .todo-array button": "show_tooltip"
 

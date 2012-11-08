@@ -24,7 +24,7 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
       @model.set('title', @$('.title').val())
 
 
-      checked = @$('.direction').is('checked');
+      checked = @$('.direction').is(':checked');
 
       @model.set('direction', checked)
       
