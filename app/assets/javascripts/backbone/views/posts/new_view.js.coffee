@@ -29,6 +29,7 @@ class RailsBackboneRelational.Views.Posts.NewView extends Backbone.View
         new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: post.get('comments'))
         view.$(".new_comment").html(new_comment_view.render().el)
         $("#title").val('')
+        
 
       error: (post, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

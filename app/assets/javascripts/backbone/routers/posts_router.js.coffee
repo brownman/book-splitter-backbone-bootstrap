@@ -2,6 +2,8 @@ class RailsBackboneRelational.Routers.PostsRouter extends Backbone.Router
   initialize: (options) ->
     @posts = new RailsBackboneRelational.Collections.PostsCollection()
     @posts.reset options.posts
+    console.log(this)
+    window.post_router = this
 
   routes:
     "/new"      : "newPost"
@@ -29,3 +31,5 @@ class RailsBackboneRelational.Routers.PostsRouter extends Backbone.Router
 
     @view = new RailsBackboneRelational.Views.Posts.EditView(model: post)
     $("#posts").html(@view.render().el)
+
+#Backbone.history.start()

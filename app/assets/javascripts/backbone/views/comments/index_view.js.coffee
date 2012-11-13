@@ -11,11 +11,18 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
   
   initialize: () ->
     #alert('options: ' + @options.ofer_length)
-    @num = @options.ofer_length
+    @num = @options.comments.length
+    #ofer_length
     #@options.comments.each(@update_span(num))
+    #.on('add2', this.alert_parent);
     
     @options.comments.bind('reset', @addAll)
-     
+
+    @options.comments.bind('add2', @add2_view)
+    #@options.comments.bind('remove', @addAll)
+    #@options.comments.bind('add', @addModelCallback);
+
+    #@options.comments.bind('remove', @addModelCallback);
 
   #update_span: (num) =>
     #alert(num)
@@ -25,24 +32,68 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #num = $(ev.target).index()
     #$()
     #alert(num)
+  add2_view: () =>
+    console.log(this)
+    console.log('add2_view')
+    #this.remove()
+    #this.addAll()
+    #this.render()
+    #
+    #@$(".comments-list").html('<a>ZVV</a>')
+   
+    tmp = @render()
+    $(@el).append(tmp) 
+    #@$el.show()
+
+    #@el.html(tmp)
     
+  addModelCallback1: () =>
+    console.log(this)
+    #alert('collection callback')
+    #
+    console.log('collection callback')
+
+    #@$(".comments-list").html('')
+    #tmp = @render()
+
+    #$(@el).html(tmp)
+
+   
+  alert_parent: () ->
+    console.log(this)
+    alert('parent')
 
   addAll: () =>
     #console.log(@options.comments)
-    @options.comments.each(@addOne)
+    comments1 = @options.comments
+    comments1.each(@addOne, comments1.length)
 
-  addOne: (comment) =>
+  addOne: (comment, num) =>
+   #this.trigger('somethingHappened')
+   
     abcd = 
       model : comment
+      c_length: num
     view = new RailsBackboneRelational.Views.Comments.CommentView(abcd)
 
-    inta = parseInt(12/@num)
-    view.el.className = "span" + inta
+  
 
+    #view.el.className =  
+    view.update_span(@num)
     @$(".comments-list").append(view.render().el)
 
   render: =>
-    $(@el).html(@template(comments: @options.comments.toJSON() ))
+    comments = @options.comments.toJSON() 
+
+    @num = @options.comments.length 
+
+    obj = 
+      comments: comments
+      #num: @num
+    console.log('Comments_collection: '  + obj)
+
+    $(@el).html(@template())
+    #$(@el).html(@template(obj))
     @addAll()
 
     return this

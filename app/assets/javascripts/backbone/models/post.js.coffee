@@ -48,3 +48,5 @@ class RailsBackboneRelational.Collections.PostsCollection extends Backbone.Colle
 
     #alert('new collection posts')
   #localStorage: new Backbone.LocalStorage("PostsCollection")
+  comparator: (post) ->
+    return post.get('id');

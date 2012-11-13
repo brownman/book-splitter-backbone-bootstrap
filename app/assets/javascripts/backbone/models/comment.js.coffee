@@ -25,9 +25,7 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     obj.trigger('event')
     @equal1(obj.counter, 5, 'counter should be incremented five times.')
     #console.log(this)
-    #alert('brothers:')
     #save: ->
-    #alert('save')
     
 
   equal1: (a,b,c) ->
@@ -69,18 +67,26 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
 
   initialize: () ->
 
+    #this.bind('add', @addModelCallback);
     #console.log(this)
-    this.bind("add", @add_ofer)
+    this.bind("add remove", @add1)
+    
+    #this.bind("change", @change_ofer)
+
+    #this.bind("add", @render)
     #@num = this.models.length
     #console.log(options)
 
     #for model in this.models.array
 
-      
+
+
      
-  add_ofer: () =>
-    console.log(this)
-    length_i = this.models.length
+  
+  add1: () =>
+   console.log(this)
+   length_i = this.models.length
+   if length_i > 0
     length_j = this.models[0].array.length
   
     #find min array
@@ -99,9 +105,9 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
       if ( num1 == length_i)
         for i in [0...length_i]
           this.models[i].array[j..j] = [] 
+   this.trigger('add2')
           
 
     
 
-  #alert('add_ofer triggered')
   #localStorage: new Backbone.LocalStorage("CommentsCollection")

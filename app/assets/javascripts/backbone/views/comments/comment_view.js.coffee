@@ -62,6 +62,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     comment = @model.toJSON()
     status = @status.toString()
     seconds = @seconds.toString()
+    spans = @el.className.toString()
    
     console.log(comment)
     tmp = @template(
@@ -69,6 +70,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       'listed2': listed2
       'obj2': status
       'obj3': seconds
+
+      'obj4': spans 
     )
     $(@el).html(tmp)
     
@@ -107,6 +110,12 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
      
      $(item).attr('background', '#000fff');
      $(item).attr('value', 'Saved');
+  
+  update_span: (num) ->
+    inta = parseInt(12/num)
+    str = "span" + inta
+    console.log(this)
+    @el.className = str 
 
 
   save_array: () ->  
@@ -114,6 +123,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     @model.save( 
      content: text 
     )
+    this.trigger('somethingHappened');
     
 
   

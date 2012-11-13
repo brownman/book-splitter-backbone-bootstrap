@@ -10,12 +10,6 @@
 
 
 
-<input height='1em'   class='span12' name="content" value= '<%= obj.content %>' />
-
-<textarea rows="4" height='1em'   class='span12' name="content1" >
-
-<%= obj.content %> 
-</textarea>
 
 
 <input label='time: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj3 %>'></input>
@@ -24,6 +18,11 @@
 
 
 
+
+<textarea rows="4" height='1em'   class='span12' name="content1" >
+
+<%= obj.content %> 
+</textarea>
 
 
 
