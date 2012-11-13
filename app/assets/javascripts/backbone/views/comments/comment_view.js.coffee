@@ -22,7 +22,16 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     
     #"hover .todo-array button": "show_tooltip"
 
-  initialize: () ->
+  initialize: () =>
+
+
+   console.log(this)
+
+   console.log(@options)
+   num = @options['c_length']
+     #this.model.collection.length
+   @update_span(num)
+   #@options.c_length
    @status = 'saved'
    @seconds = 10
    this.model.bind('change', this.before_render);

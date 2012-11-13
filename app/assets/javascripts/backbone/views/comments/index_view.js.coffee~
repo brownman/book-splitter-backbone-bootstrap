@@ -65,13 +65,15 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
   addAll: () =>
     #console.log(@options.comments)
-    @options.comments.each(@addOne)
+    comments1 = @options.comments
+    comments1.each(@addOne, num: comments1.length)
 
-  addOne: (comment) =>
+  addOne: (comment ) =>
    #this.trigger('somethingHappened')
    
     abcd = 
       model : comment
+      c_length: num
     view = new RailsBackboneRelational.Views.Comments.CommentView(abcd)
 
   
@@ -83,11 +85,15 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
   render: =>
     comments = @options.comments.toJSON() 
 
+    @num = @options.comments.length 
+
     obj = 
       comments: comments
-      num: @num
+      #num: @num
     console.log('Comments_collection: '  + obj)
-    $(@el).html(@template(obj))
+
+    $(@el).html(@template())
+    #$(@el).html(@template(obj))
     @addAll()
 
     return this
