@@ -9,7 +9,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     #"dblclick a.todo-content" : "edit",
 
     "keypress .title"      : "updateOnEnter"
-    "dblclick .accordion-toggle"      : "show_post"
+    "click .accordion-toggle .open"      : "show_post"
 
 
 
@@ -56,13 +56,13 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     #
   updateOnEnter: (e) ->
 
-    this.trigger('somethingHappened')
+    #this.trigger('somethingHappened')
     if e.keyCode is 13
       console.log(e)
       @input = this.$(".title");
       console.log(@input)
 
-    #@model.save({ title: @input.val() })
+      @model.save({ title: @input.val() })
     #$(@el).removeClass("editing")
 
   render: ->

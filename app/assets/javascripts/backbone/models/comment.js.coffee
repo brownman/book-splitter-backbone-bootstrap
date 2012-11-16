@@ -3,30 +3,23 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
 
   @array = []
   defaults:
-    content: null
+    content: 'content'
     direction: true
-    title: null
+    title: 'title' 
   
   initialize: () -> 
-    tmp = @get('content')
-    if (tmp && tmp.length > 0)         
-      @array =  @split()
 
-    obj = { counter: 0 }
-    _.extend(obj,Backbone.Events)
-    obj.on('event',
-           () ->  obj.counter += 1 
-          )
-    obj.trigger('event')
-    @equal1(obj.counter,1,'counter should be incremented.')
-    obj.trigger('event')
-    obj.trigger('event')
-    obj.trigger('event')
-    obj.trigger('event')
-    @equal1(obj.counter, 5, 'counter should be incremented five times.')
+
+    this.on('change:content', @update_array)
+    @update_array()
     #console.log(this)
     #save: ->
     
+  update_array: () =>
+   #alert('update array')
+   tmp = @get('content')
+   if (tmp && tmp.length > 0)         
+      @array =  @split()
 
   equal1: (a,b,c) ->
     #alert(a + '|' + '|' +c)
@@ -47,8 +40,11 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
   split : () ->
     str = @get('content')
     story_enc = str 
-    #    story_enc =  story_enc.replace(/\n/g, "^")
-    arr_symbols = [',', '!', '.', "?", ":", ";", "=", "\n" ]
+    story_enc =  story_enc.replace(/\n/g, "^")
+    
+    arr_symbols = [',', '!', '.', "?", ":", ";", "=" ]
+    #if !@direction
+      #arr_symbols.push  "\n"
     story_enc = @replace(story_enc, arr_symbols)
     story_arr = story_enc.split('$')
     story_arr

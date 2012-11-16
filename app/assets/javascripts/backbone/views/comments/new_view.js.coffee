@@ -31,10 +31,10 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
       @collection.create(@model.toJSON(),
         success: (comment) =>
           alert('success')
-          view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
-          tmp =  view.render().el
-          tmp1 = $(@.el).parent().parent().find('.comments-list')
-          $(tmp1).append(tmp)
+          #view = new RailsBackboneRelational.Views.Comments.CommentView({model : comment})
+          #tmp =  view.render().el
+          #tmp1 = $(@.el).parent().parent().find('.comments-list')
+          #$(tmp1).append(tmp)
           @$('.content').val('good')
           @$('.title').val('good1')
 
@@ -51,3 +51,4 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
     $(@el).html(@template(@model.toJSON() ))
 
     return this
+

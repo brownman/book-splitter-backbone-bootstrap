@@ -9,7 +9,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     #"dblclick a.todo-content" : "edit",
 
     "keypress .title"      : "updateOnEnter"
-    "dblclick .accordion-toggle"      : "show_post"
+    "click .accordion-toggle .open"      : "show_post"
 
 
 
@@ -37,7 +37,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
       ofer_length: num
 
     comments_view = new RailsBackboneRelational.Views.Comments.IndexView(abc) 
-    view.$(".comments").html(comments_view.render().el)
+    view.$(".comments").html(comments_view.render().$el)
     new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: post.get('comments'))
     view.$(".new_comment").html(new_comment_view.render().el)
     
@@ -62,7 +62,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
       @input = this.$(".title");
       console.log(@input)
 
-    #@model.save({ title: @input.val() })
+      @model.save({ title: @input.val() })
     #$(@el).removeClass("editing")
 
   render: ->

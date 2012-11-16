@@ -1,14 +1,18 @@
   <div class="accordion-heading">
       <div class="accordion-toggle" data-toggle="collapse" data-parent="#posts-list" href="#collapseOne<%= post.id %>">
 
+<button class='open btn span2' >open</button>
 <a class="id"><%= post.id %></a>
 <input class="title" value=<%= post.title %> >title: </input>
 
 
 <a href="#/posts<%= post.id %>/edit" class="edit">edit</a>
 
-<a class="c_length" >length:<%= length %>  </a>
 <a href="/posts#/<%= post.id %>/destroy" class="destroy">delete</a>
+
+<a class="c_length" >length:<%= length %>  </a>
+
+
 
       </div>
     </div>

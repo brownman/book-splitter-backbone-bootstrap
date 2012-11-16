@@ -18,17 +18,45 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "blur .seconds"              : "set_delay" 
 
+    "blur .content"              : "set_content" 
+
+    "keypress .title"      : "updateOnEnter"
 
     
     #"hover .todo-array button": "show_tooltip"
+  set_content: (e) ->
+      console.log(e)
+      input = e.target.value
 
+        #this.$(".content");
+      console.log(input)
+
+      @model.save({ content: input })
+      #@render()
+
+
+  updateOnEnter: (e) ->
+    
+    #this.trigger('somethingHappened')
+    if e.keyCode is 13
+      console.log(e)
+      @input = this.$(".title");
+      console.log(@input)
+
+      @model.save({ title: @input.val() })
+      
+    #$(@el).removeClass("editing")
   initialize: () ->
 
 
    console.log(this)
 
    console.log(@options)
-   num = this.model.collection.length
+   num = 
+
+     this.model.collection.length
+
+     #@options['c_length']
    @update_span(num)
    #@options.c_length
    @status = 'saved'
@@ -49,9 +77,10 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   toggleDone : () ->
     @model.save(
-    
-      direction : !this.model.get('direction')
+      {direction : !this.model.get('direction') }
+      {silent: true}
     )
+    @render()
 
 
     
@@ -64,10 +93,11 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
 
 
-  render: =>
+  render: ->
     listed2 = this.splitted2()
     
     comment = @model.toJSON()
+
     status = @status.toString()
     seconds = @seconds.toString()
     spans = @el.className.toString()
@@ -80,6 +110,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       'obj3': seconds
 
       'obj4': spans 
+
     )
     $(@el).html(tmp)
     
@@ -131,7 +162,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     @model.save( 
      content: text 
     )
-    this.trigger('somethingHappened');
+    #this.trigger('somethingHappened');
+    #@render
     
 
   

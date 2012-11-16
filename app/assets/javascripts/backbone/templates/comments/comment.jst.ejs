@@ -4,28 +4,38 @@
 
 
 
-<input  type="checkbox" name="direction" class="direction checkbox span12" <%= obj.direction ? 'checked="checked"' : '' %>  />
-<input  class='span12' height='1em' type='text' value='<%= obj.title %>'></input>
+<input  type="checkbox" name="direction" class="span12 direction checkbox " <%= obj.direction ? 'checked="checked"' : '' %> ></input>
+
+id:
+<input  class='' height='1em' type='text' label='id' value='<%= obj.id %>'></input>
+<br>
+title:
+<input  class='title' height='1em' type='text' value='<%= obj.title %>'></input>
+<br>
 
 
 
 
 
+delay(s):
+<input label='time: ' tooltip='delay in seconds' class='seconds' height='1em' type='text' value='<%= obj3 %>'></input>
+<br>
 
-<input label='time: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj3 %>'></input>
-
-<input label='span: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj4 %>'></input>
-
-
+span:
+<input label='span: ' tooltip='delay in seconds' class='seconds' height='1em' type='text' value='<%= obj4 %>'></input>
+<br>
 
 
 
 
-<textarea rows="4" height='1em'   class='span12' name="content1" >
+
+content:
+<textarea class="content" rows="4" height='1em'   class='' name="content1" >
 
 <%= obj.content %> 
 </textarea>
 
+<br>
 
 
 
@@ -47,4 +57,4 @@
 <a href="/comments#/<%= obj.id %>/destroy" class="destroy">kill</a>
 
 </div>
-
+<span padding='3px' height='100%'></span>
