@@ -16,7 +16,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #@options.comments.each(@update_span(num))
     #.on('add2', this.alert_parent);
     
-    @options.comments.bind('reset', @addAll)
+    #@options.comments.bind('reset', @addAll)
 
     @options.comments.bind('add2', @add2_view)
     #@options.comments.bind('remove', @addAll)
@@ -84,6 +84,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     @$(".comments-list").append(view.render().el)
 
   render: =>
+
     comments = @options.comments.toJSON() 
 
     @num = @options.comments.length 

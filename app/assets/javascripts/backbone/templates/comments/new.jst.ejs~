@@ -1,4 +1,4 @@
-<div class="new-comment form span3">
+<div class="new_comment form span3">
 
 
 <form  class="field1" height='1em' >
@@ -15,5 +15,5 @@
 
 <input type="submit" value="Submit">
 </form>  
-
+<input type='text' class='errors'>errors: </input>
 </div>

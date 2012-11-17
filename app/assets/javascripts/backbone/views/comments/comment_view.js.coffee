@@ -9,7 +9,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   events:
     "click .destroy" : "destroy"
-    "dblclick .todo-array button": "push_index"
+    #"dblclick .todo-array button": "push_index"
 
     "click .todo-array button": "whiteSpaceCheck"
 
@@ -22,7 +22,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "keypress .title"      : "updateOnEnter"
 
-    
+
+
     #"hover .todo-array button": "show_tooltip"
   set_content: (e) ->
       console.log(e)
@@ -31,19 +32,19 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
         #this.$(".content");
       console.log(input)
 
-      @model.set({ content: input })
+      @model.save({ content: input })
       #@render()
 
 
   updateOnEnter: (e) ->
     
     #this.trigger('somethingHappened')
-    if e.keyCode is 13
+    #if e.keyCode is 13
       console.log(e)
-      @input = this.$(".title");
-      console.log(@input)
+      input = this.$(".title");
+      console.log(input)
 
-      @model.save({ title: @input.val() })
+      @model.save({ title: input.val() })
       
     #$(@el).removeClass("editing")
   initialize: () ->
@@ -94,6 +95,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
 
   render: ->
+
     listed2 = this.splitted2()
     
     comment = @model.toJSON()
@@ -170,14 +172,17 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   whiteSpaceCheck:   (ev) -> 
     item =  ev.target
     str = $(item).context.innerText
-    if(str != '=')
+
+    tmp1 =  $(item).hasClass("test1") 
+    #alert(tmp1)
+    if(str != '=' && !tmp1)
      _.delay(_.bind(this.something, item), @seconds * 1000 , 'logged later') 
-     $(item).toggleClass("test1") 
+     $(item).addClass("test1") 
     else
      @push_index(ev)
   
   something: (msg) ->
-     $(this).toggleClass("test1") 
+     $(this).removeClass("test1") 
   
   set_delay: (ev) ->
     @seconds = ev.target.value

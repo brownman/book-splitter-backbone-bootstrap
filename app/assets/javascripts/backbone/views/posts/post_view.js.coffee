@@ -32,14 +32,16 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     comments1 = post.get('comments')
     num = comments1.length
     view = @
+    console.log(view)
     abc = 
       comments: comments1
       ofer_length: num
 
     comments_view = new RailsBackboneRelational.Views.Comments.IndexView(abc) 
-    view.$(".comments").html(comments_view.render().$el)
-    new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: post.get('comments'))
-    view.$(".new_comment").html(new_comment_view.render().el)
+    view.$(".comments").append(comments_view.render().$el)
+    new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: comments1)
+    view.$(".new_comment").append(new_comment_view.render().el)
+
     
   destroy: () ->
     @model.destroy()
@@ -77,6 +79,12 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
       'length':    num 
     )
     $(@el).html(tmp)
+    view =   $(@el)
+
+    comments1 = @model.get('comments')
+    #new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: comments1)
+    #view.find(".new_comment").html(new_comment_view.render().el)
+
     return this
 
   not_render2: =>
