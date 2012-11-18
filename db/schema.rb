@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121118143611) do
 
+
   create_table "comments", :force => true do |t|
     t.text   "content"
     t.datetime "created_at", :null => false
