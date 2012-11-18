@@ -44,9 +44,12 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
           console.log(jqXHR)
           obj = 
             errors: $.parseJSON(jqXHR.responseText)
-          #@model.set(obj)
-          #str = obj.errors
-          #@$('.errors').val(str)
+          @model.set(obj)
+          str = obj.errors
+          @$('.errors').val(
+            'title: ' + str['title'] + ': ' +  '  content: '   +        str['content']  
+          
+           )
           
         
         #Backbone.history.navigate('', true);

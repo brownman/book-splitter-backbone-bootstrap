@@ -84,7 +84,6 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     @$(".comments-list").append(view.render().el)
 
   render: =>
-
     comments = @options.comments.toJSON() 
 
     @num = @options.comments.length 

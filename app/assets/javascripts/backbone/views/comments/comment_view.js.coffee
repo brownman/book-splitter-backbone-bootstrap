@@ -18,6 +18,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "blur .seconds"              : "set_delay" 
 
+    "blur .order"              : "set_order" 
+
     "blur .content"              : "set_content" 
 
     "keypress .title"      : "updateOnEnter"
@@ -102,7 +104,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     status = @status.toString()
     seconds = @seconds.toString()
+
     spans = @el.className.toString()
+    order = comment.order
    
     console.log(comment)
     tmp = @template(
@@ -111,7 +115,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       'obj2': status
       'obj3': seconds
 
+
       'obj4': spans 
+      'obj5': order 
 
     )
     $(@el).html(tmp)
@@ -189,5 +195,10 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     console.log(@seconds) 
    
 
+  set_order: (ev) ->
+    order1 = ev.target.value
+    console.log(order1) 
+    num = parseInt(order1, 10)
+    @model.save({ order: num })
 
         

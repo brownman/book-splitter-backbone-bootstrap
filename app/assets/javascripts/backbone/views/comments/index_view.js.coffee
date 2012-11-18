@@ -42,7 +42,9 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #@$(".comments-list").html('<a>ZVV</a>')
    
     tmp = @render()
-    $(@el).append(tmp) 
+    view =  $(@el)
+    view.append(tmp) 
+   
     #@$el.show()
 
     #@el.html(tmp)

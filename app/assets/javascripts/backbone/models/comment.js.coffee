@@ -6,7 +6,16 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     content: 'content'
     direction: true
     title: 'title' 
+    order: 0 
   
+  validate: (attrs) ->
+
+    if (attrs.title == '')  
+      return "title is empty"
+    
+    if (attrs.content == '')  
+      return "content is empty"
+    
   initialize: () -> 
 
 
@@ -65,7 +74,20 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
 
     #this.bind('add', @addModelCallback);
     #console.log(this)
+    #
+    
+
     this.bind("add remove", @add1)
+
+    this.bind("change:order", @sort1)
+
+
+
+
+
+    this
+
+    #this.bind("reset", @sort1)
     
     #this.bind("change", @change_ofer)
 
@@ -77,9 +99,16 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
 
 
 
-     
-  
+       
+  sort1: () =>
+   console.log('sort1')
+   alert('sort1')
+   this.sort()
+
+   this.trigger('add2')
+
   add1: () =>
+   #this.sort()
    console.log(this)
    length_i = this.models.length
    if length_i > 0
@@ -101,9 +130,18 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
       if ( num1 == length_i)
         for i in [0...length_i]
           this.models[i].array[j..j] = [] 
+
+
+   this.sort()
+
+
    this.trigger('add2')
           
 
-    
+  comparator: (comment) ->
+    #return comment.get('id') 
+
+    return comment.get('order') 
+
 
   #localStorage: new Backbone.LocalStorage("CommentsCollection")
