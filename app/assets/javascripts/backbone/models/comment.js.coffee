@@ -69,9 +69,16 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
   model: RailsBackboneRelational.Models.Comment
   url: '/comments'
   #@num = 0
+ 
+
+ 
+  length1: () ->
+   num =     this.length - @hides
+   num
 
   initialize: () ->
 
+    @hides =  0
     #this.bind('add', @addModelCallback);
     #console.log(this)
     #
@@ -143,5 +150,7 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
 
     return comment.get('order') 
 
+  decrease: () ->
+    @hides += 1
 
   #localStorage: new Backbone.LocalStorage("CommentsCollection")

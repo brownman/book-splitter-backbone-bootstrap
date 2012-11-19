@@ -14,6 +14,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "click .todo-array button": "whiteSpaceCheck"
 
     "click .direction"              : "toggleDone" 
+
+    "click .show"              : "toggleShow" 
     "click .save"              : "save_array" 
 
     "blur .seconds"              : "set_delay" 
@@ -49,21 +51,23 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       @model.save({ title: input.val() })
       
     #$(@el).removeClass("editing")
+  get_col_length: () -> 
+     this.model.collection.length1()
+
   initialize: () ->
 
 
    console.log(this)
 
    console.log(@options)
-   num = 
-
-     this.model.collection.length
+   num =      @get_col_length()
 
      #@options['c_length']
    @update_span(num)
    #@options.c_length
    @status = 'saved'
    @seconds = 10
+   @hide1 = false
    this.model.bind('change', this.before_render);
  
   before_render:() =>
@@ -86,7 +90,6 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     @render()
 
 
-    
 
   destroy: () ->
     @model.destroy()
@@ -118,6 +121,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
       'obj4': spans 
       'obj5': order 
+
+      'obj6': @hide1 
 
     )
     $(@el).html(tmp)
@@ -201,4 +206,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     num = parseInt(order1, 10)
     @model.save({ order: num })
 
-        
+  toggleShow : () ->
+    @hide1 = !@hide1
+    #$(@el).toggleClass('hide1') 
+    if(@hide1)
+     this.model.collection.decrease()
+     num = @get_col_length()
+     alert(num)
+     @update_span(num)
+     $(@el).remove()
+      #find(".collapsable").collapse()
+    #@render()    

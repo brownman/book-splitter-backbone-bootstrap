@@ -1,4 +1,7 @@
-<div class='span12' >
+
+
+<input  type="checkbox" name="show" class="show checkbox span12" <%= obj6 ? 'checked="checked"' : '' %> ></input>
+<div class='wrap span12' data-toggle="collapse" >
 
 
 
@@ -7,35 +10,35 @@
 <input  type="checkbox" name="direction" class="span12 direction checkbox " <%= obj.direction ? 'checked="checked"' : '' %> ></input>
 
 order:
-<input label='order: ' tooltip='order..' class='order' height='1em' type='text' value='<%= obj5 %>'></input>
+<input label='order: ' tooltip='order..' class='order span12' height='1em' type='text' value='<%= obj5 %>'></input>
 <br>
 
 id:
-<input  class='' height='1em' type='button' label='id' value='<%= obj.id %>'></input>
+<input  class='id span12' height='1em' type='text' label='id' value='<%= obj.id %>'></input>
 <br>
 
 
 
 
 delay(s):
-<input label='time: ' tooltip='delay in seconds' class='seconds' height='1em' type='text' value='<%= obj3 %>'></input>
+<input label='time: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj3 %>'></input>
 <br>
 
 span:
-<input label='span: ' tooltip='delay in seconds' class='seconds' height='1em' type='text' value='<%= obj4 %>'></input>
+<input label='span: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj4 %>'></input>
 <br>
 
 
 
 
 title:
-<input  class='title' height='1em' type='text' value='<%= obj.title %>'></input>
+<input  class='title span12' height='1em' type='text' value='<%= obj.title %>'></input>
 <br>
 
 
 
 content:
-<textarea class="content" rows="4" height='1em'   class='' name="content1" >
+<textarea class="content span12" rows="4" height='1em'   class='' name="content1" >
 
 <%= obj.content %> 
 </textarea>
@@ -49,7 +52,7 @@ content:
 
 <input class="btn save span12" type="button" value="<%= obj2  %>"> 
 
-<div class="btn-group todo-array "  <%= obj.direction ? 'dir="rtl"' : '' %>  >
+<div class="btn-group todo-array  span12"  <%= obj.direction ? 'dir="rtl"' : '' %>  >
 
 <%= listed2 %>
 </div>
@@ -59,7 +62,6 @@ content:
 
 
 
-<a href="/comments#/<%= obj.id %>/destroy" class="destroy">kill</a>
+<a href="/comments#/<%= obj.id %>/destroy" class="destroy span12">kill</a>
 
 </div>
-<span padding='3px' height='100%'></span>
