@@ -2,6 +2,8 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
   paramRoot: 'comment'
 
   @array = []
+  @hide1 = false
+  
   defaults:
     content: 'content'
     direction: true
@@ -17,13 +19,18 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
       return "content is empty"
     
   initialize: () -> 
-
-
+    @hide1 = false
     this.on('change:content', @update_array)
+
+    #this.on('change:direction', @update_hide)
+
     @update_array()
     #console.log(this)
     #save: ->
     
+  #update_hide: () =>
+   #alert('update hide')
+      
   update_array: () =>
    #alert('update array')
    tmp = @get('content')
@@ -85,6 +92,7 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
     
 
     this.bind("add remove", @add1)
+
 
     this.bind("change:order", @sort1)
 
@@ -152,5 +160,6 @@ class RailsBackboneRelational.Collections.CommentsCollection extends Backbone.Co
 
   decrease: () ->
     @hides += 1
+    @trigger('update_spans')
 
   #localStorage: new Backbone.LocalStorage("CommentsCollection")

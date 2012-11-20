@@ -8,7 +8,12 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
   className: 'span12'
   tagName: 'div' 
-  
+  events:
+    "click .update_spans" : 'decrease_span'
+    
+  decrease_span: () ->
+    console.log('another callback by parent')
+
   initialize: () ->
     #alert('options: ' + @options.ofer_length)
     @num = @options.comments.length
@@ -19,6 +24,8 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #@options.comments.bind('reset', @addAll)
 
     @options.comments.bind('add2', @add2_view)
+
+    #@el.delegateEvents(events);
     #@options.comments.bind('remove', @addAll)
     #@options.comments.bind('add', @addModelCallback);
 
@@ -42,8 +49,10 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #@$(".comments-list").html('<a>ZVV</a>')
    
     tmp = @render()
-    view =  $(@el)
-    view.append(tmp) 
+    view =  @el
+
+    #view.append(tmp) 
+    view = tmp
    
     #@$el.show()
 
@@ -66,26 +75,56 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     alert('parent')
 
   addAll: () =>
+
+    @container = new Backbone.ChildViewContainer()
     #console.log(@options.comments)
     comments1 = @options.comments
     comments1.each(@addOne)
+    @num = @container.length 
+
+
+
+    #@container.each()
+
+    #@container.call(this.update_span());
+
+    @container.each(@show_one)
 
   addOne: (comment ) =>
    #this.trigger('somethingHappened')
-   
+    if(comment.hide1 == true) 
+      console.log('dont show me.')
+      return
+
     abcd = 
       model : comment
-      #c_length: @num.toString()
+      c_length: @num.toString()
+
+
+    
     view = new RailsBackboneRelational.Views.Comments.CommentView(abcd)
 
-  
 
+
+    view.on('hide1', @update_spans1 )
+    #view.$el.on('click .hide1', @update_spans1 )
     #view.el.className =  
-    view.update_span(@num)
+    #view.update_span(@num)
+
+    @container.add(view)
     #view.model.collection.each(@update_span)
+
+
+  show_one: (view) =>
+    view.update_span(@num)
     @$(".comments-list").append(view.render().el)
 
-  render: =>
+  updateOneSpan: () => 
+    view.update_span(@num)
+    
+
+    
+  render: ->
     comments = @options.comments.toJSON() 
 
     @num = @options.comments.length 
@@ -100,3 +139,14 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     @addAll()
 
     return this
+
+  update_spans1: () =>
+    console.log('how many viewable ? ')
+    #@num -= 1
+    #alert(@num)
+    #comments1 = @options.comments
+    #comments1.each(@updateOneSpan)
+    @render()
+
+
+

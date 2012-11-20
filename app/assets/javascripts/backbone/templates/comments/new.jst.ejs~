@@ -16,4 +16,6 @@
 <input type="submit" value="Submit">
 </form>  
 <input type='text' class='errors'>errors: </input>
+
+<input type='button' class='update_spans'>update_spans: </input>
 </div>

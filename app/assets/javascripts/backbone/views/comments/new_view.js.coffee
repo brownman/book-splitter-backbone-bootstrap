@@ -6,6 +6,10 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
   events:
     "submit .field1": "save"
 
+    #"click .update_spans": "update_spans"
+
+
+
   constructor: (options) ->
     super(options)
     @model = new @collection.model()

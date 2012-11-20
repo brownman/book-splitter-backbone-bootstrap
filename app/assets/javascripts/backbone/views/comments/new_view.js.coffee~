@@ -6,6 +6,13 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
   events:
     "submit .field1": "save"
 
+    #"click .update_spans": "update_spans"
+
+  update_spans: () ->
+    alert('update_spans')
+    console.log(@collections)
+        
+
   constructor: (options) ->
     super(options)
     @model = new @collection.model()
@@ -49,7 +56,7 @@ class RailsBackboneRelational.Views.Comments.NewView extends Backbone.View
           @$('.errors').val(
             'title: ' + str['title'] + ': ' +  '  content: '   +        str['content']  
           
-           )
+          )
           
         
         #Backbone.history.navigate('', true);

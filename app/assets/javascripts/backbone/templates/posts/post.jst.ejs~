@@ -18,13 +18,12 @@
     </div>
     <div id="collapseOne<%= post.id %>" class="accordion-body collapse">
       <div class="accordion-inner">
-<a>
-new_comment:
-</a>
+
         <div class="new_comment">new_comment:</div>
 
         <div class="comments" >comments:</div>
 
+        <div class="child_info" >child info:</div>
 
       </div>
     </div>

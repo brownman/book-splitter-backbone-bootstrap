@@ -1,7 +1,7 @@
 
 
-<input  type="checkbox" name="show" class="show checkbox span12" <%= obj6 ? 'checked="checked"' : '' %> ></input>
-<div class='wrap span12' data-toggle="collapse" >
+<input  type="checkbox" name="show" class="hide1 checkbox span12" <%= obj6 ? 'checked="checked"' : '' %> ></input>
+<div class='collapsable wrap span12' data-toggle="collapse" >
 
 
 

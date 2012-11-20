@@ -13,9 +13,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "click .todo-array button": "whiteSpaceCheck"
 
-    "click .direction"              : "toggleDone" 
+    "click .direction"              : "set_direction" 
 
-    "click .show"              : "toggleShow" 
+    "click .hide1"              : "toggleShow" 
     "click .save"              : "save_array" 
 
     "blur .seconds"              : "set_delay" 
@@ -24,7 +24,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "blur .content"              : "set_content" 
 
-    "keypress .title"      : "updateOnEnter"
+    "blur .title"      : "set_title"
 
 
 
@@ -40,7 +40,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       #@render()
 
 
-  updateOnEnter: (e) ->
+  set_title: (e) ->
     
     #this.trigger('somethingHappened')
     #if e.keyCode is 13
@@ -51,23 +51,21 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       @model.save({ title: input.val() })
       
     #$(@el).removeClass("editing")
-  get_col_length: () -> 
-     this.model.collection.length1()
-
   initialize: () ->
 
 
    console.log(this)
 
    console.log(@options)
-   num =      @get_col_length()
+   num =      
+     #@col_get_length()
 
-     #@options['c_length']
+   @options['c_length']
    @update_span(num)
    #@options.c_length
    @status = 'saved'
    @seconds = 10
-   @hide1 = false
+   #@hide1 = false
    this.model.bind('change', this.before_render);
  
   before_render:() =>
@@ -82,7 +80,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   tagName: "td"
 
-  toggleDone : () ->
+  set_direction : () ->
     @model.save(
       {direction : !this.model.get('direction') }
       {silent: true}
@@ -163,11 +161,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
      $(item).attr('background', '#000fff');
      $(item).attr('value', 'Saved');
   
-  update_span: (num) ->
-    inta = parseInt(12/num)
-    str = "span" + inta
-    console.log(this)
-    @el.className = str 
+
 
 
   save_array: () ->  
@@ -207,13 +201,20 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     @model.save({ order: num })
 
   toggleShow : () ->
-    @hide1 = !@hide1
-    #$(@el).toggleClass('hide1') 
-    if(@hide1)
-     this.model.collection.decrease()
-     num = @get_col_length()
-     alert(num)
-     @update_span(num)
-     $(@el).remove()
-      #find(".collapsable").collapse()
-    #@render()    
+    @model.hide1 = !@model.hide1
+    #@remove() 
+    @trigger('hide1') 
+
+  update_span: (num) ->
+    #num = @col_get_length()
+     #alert(num)
+     #@update_span(num)
+    inta = parseInt(12/num)
+    str = "span" + inta
+    console.log(this)
+    @el.className = str 
+  
+
+
+
+
