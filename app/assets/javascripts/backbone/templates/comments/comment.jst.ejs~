@@ -10,14 +10,9 @@
     </div>
     <div id="collapseOne<%= obj.id %>" class="accordion-body collapse child1">
       <div class="accordion-inner">
-          log info
           <div class='details'>
-                            <label class="checkbox " for="direction">
-                                <br>
 
-                                direction(ltr):  
-                                <input  type="checkbox" name="direction" class="span9 direction checkbox " <%= obj.direction ? 'checked="checked"' : '' %> />
-                            </label>
+
 
 
 
@@ -48,21 +43,14 @@
       </div>
     </div>
   </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Collapsible Group Item #2
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <div class='all'>
+    <label class="checkbox span12" >
+      <input type="checkbox" name="direction" class='direction span3' <%= obj.direction ? 'checked="checked"' : '' %> >direction(ltr):
+    </label>
+
     <input  type="button" name="show" value='hide' class="span12 hide1 " <%= obj6 ? 'checked="checked"' : '' %> />
 
     <br>

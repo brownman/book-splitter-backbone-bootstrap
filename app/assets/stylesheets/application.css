@@ -12,15 +12,4 @@
  *= require_tree .
 */
 
-input[type="checkbox"]{
-	position:absolute;
-	left:0;
-	top:0;
-	width:auto;
-	display:inline-block;
-	}
 
-label.checkbox{
-	position:relative;
-	float: left;
-	}
