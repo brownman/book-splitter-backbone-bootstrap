@@ -11,7 +11,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "click .destroy" : "destroy"
     #"dblclick .todo-array button": "push_index"
 
-    "click .todo-array button": "whiteSpaceCheck"
+    "click .all .todo-array button": "whiteSpaceCheck"
 
     "click .direction"              : "set_direction" 
 
@@ -57,14 +57,11 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
    console.log(this)
 
    console.log(@options)
-   num =      
-     #@col_get_length()
-
-   @options['c_length']
-   @update_span(num)
+   #num =  @options['c_length']
+   #@update_span(num)
    #@options.c_length
    @status = 'saved'
-   @seconds = 10
+   @seconds = 30
    #@hide1 = false
    this.model.bind('change', this.before_render);
  
@@ -175,6 +172,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   
   whiteSpaceCheck:   (ev) -> 
+    
+
     item =  ev.target
     str = $(item).context.innerText
 
@@ -185,6 +184,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
      $(item).addClass("test1") 
     else
      @push_index(ev)
+     
+    ev.stopImmediatePropagation()
+    #return false
   
   something: (msg) ->
      $(this).removeClass("test1") 

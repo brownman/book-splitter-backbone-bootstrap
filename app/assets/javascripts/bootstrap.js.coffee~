@@ -5,7 +5,8 @@ jQuery ->
   $('.accordion-group').collapse({
    toggle: true 
   })
-  console.log('start')
+  #console.log
+  alert('start')
 
-  fn.do_ping: () =>
-    alert('ping')
+  #fn.do_ping: () =>
+    #alert('ping')

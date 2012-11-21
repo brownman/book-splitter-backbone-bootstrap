@@ -15,6 +15,8 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     console.log('another callback by parent')
 
   initialize: () ->
+
+    @container = new Backbone.ChildViewContainer()
     #alert('options: ' + @options.ofer_length)
     @num = @options.comments.length
     #ofer_length
@@ -76,7 +78,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
   addAll: () =>
 
-    @container = new Backbone.ChildViewContainer()
+
     #console.log(@options.comments)
     comments1 = @options.comments
     comments1.each(@addOne)
@@ -114,6 +116,11 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     @container.add(view)
     #view.model.collection.each(@update_span)
 
+
+  show_one: (view) =>
+    view.update_span(@num)
+    @$(".comments-list").append(view.render().el)
+
   updateOneSpan: () => 
     view.update_span(@num)
     
@@ -141,22 +148,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
     #alert(@num)
     #comments1 = @options.comments
     #comments1.each(@updateOneSpan)
-    #@render()
-    @num = @container.length 
+    @render()
 
 
-
-    #@container.each()
-
-    #@container.call(this.update_span());
-
-    @container.each(@update_only_span)
-
-
-  show_one: (view) =>
-    view.update_span(@num)
-    @$(".comments-list").append(view.render().el)
-
-  update_only_span: (view) =>
-    view.update_span(@num)
 

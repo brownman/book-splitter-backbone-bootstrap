@@ -1,7 +1,7 @@
   <div class="accordion-heading">
       <div class="accordion-toggle" data-toggle="collapse" data-parent="#posts-list" href="#collapseOne<%= post.id %>">
 
-<button class='open btn span2' >fetch</button>
+<button class='open btn span2' >reload</button>
 <a class="id"><%= post.id %></a>
 <input class="title" value=<%= post.title %> >title: </input>
 
@@ -21,9 +21,12 @@
 
         <div class="new_comment">new_comment:</div>
 
-        <div class="comments" >comments:</div>
 
         <div class="child_info" >child info:</div>
+
+        <div class="comments" >comments:</div>
+
+
 
       </div>
     </div>

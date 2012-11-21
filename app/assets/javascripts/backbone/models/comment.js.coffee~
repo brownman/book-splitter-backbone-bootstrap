@@ -1,7 +1,7 @@
 class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
   paramRoot: 'comment'
 
-  @array = []
+
   #@hide1 = false
   
   defaults:
@@ -18,7 +18,12 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     if (attrs.content == '')  
       return "content is empty"
     
+  reset_hide1: () ->
+    @hide1 = false
+
   initialize: () -> 
+
+    @array = []
     @hide1 = false
     this.on('change:content', @update_array)
 
@@ -58,7 +63,7 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     story_enc = str 
     story_enc =  story_enc.replace(/\n/g, "^")
     
-    arr_symbols = [',', '!', '.', "?", ":", ";", "=" ]
+    arr_symbols = [',', '!', '.', "?", ":", ";", "=", "-" ]
     #if !@direction
       #arr_symbols.push  "\n"
     story_enc = @replace(story_enc, arr_symbols)

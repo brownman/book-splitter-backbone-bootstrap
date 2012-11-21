@@ -8,7 +8,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     #"click .submit" : "update"
     #"dblclick a.todo-content" : "edit",
 
-    "keypress .title"      : "updateOnEnter"
+    "blur .title"      : "set_title"
     "click .accordion-toggle .open"      : "show_post"
 
 
@@ -30,6 +30,7 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
 
     post = @model
     comments1 = post.get('comments')
+    comments1.each(@reset_hide1) 
     num = comments1.length
     view = tmp 
     console.log(view)
@@ -42,6 +43,8 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     view.$(".comments").html(comments_view.render().el)
     new_comment_view = new RailsBackboneRelational.Views.Comments.NewView(collection: comments1)
     view.$(".new_comment").html(new_comment_view.render().el)
+  reset_hide1: (comment) =>
+    comment.reset_hide1()
 
     
   destroy: () ->
@@ -57,10 +60,9 @@ class RailsBackboneRelational.Views.Posts.PostView extends Backbone.View
     #)
     #
     #
-  updateOnEnter: (e) ->
+  set_title: (e) ->
 
     #this.trigger('somethingHappened')
-    if e.keyCode is 13
       console.log(e)
       @input = this.$(".title");
       console.log(@input)

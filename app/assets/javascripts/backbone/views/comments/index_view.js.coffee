@@ -76,7 +76,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
   addAll: () =>
 
-    @container = new Backbone.ChildViewContainer()
+    
     #console.log(@options.comments)
     comments1 = @options.comments
     comments1.each(@addOne)
@@ -127,7 +127,7 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
   render: ->
     comments = @options.comments.toJSON() 
 
-    @num = @options.comments.length 
+    #@num = @options.comments.length 
 
     obj = 
       comments: comments
@@ -136,6 +136,8 @@ class RailsBackboneRelational.Views.Comments.IndexView extends Backbone.View
 
     $(@el).html(@template())
     #$(@el).html(@template(obj))
+    #
+    @container = new Backbone.ChildViewContainer()
     @addAll()
 
     return this
