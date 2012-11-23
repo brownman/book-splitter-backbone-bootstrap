@@ -37,11 +37,20 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     alert('sound')
 
 
-    @voice.src = 'http://koebu.s3.amazonaws.com/mp3/c/c7/c78a/c78a5fe8acbd284852a3b1918e9f9772e59868b2.mp3'  
 
-    @voice.load() 
     input = e.target.value
+
+    @voice.src =      input 
+
+      #'http://koebu.s3.amazonaws.com/mp3/c/c7/c78a/c78a5fe8acbd284852a3b1918e9f9772e59868b2.mp3'
+
+      #'http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3'
+
+
+
     console.log(input)
+
+
 
     #sound = new Audia(
                   #src: input
@@ -50,6 +59,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     #sound.src = 'http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3'
     #sound.play()
+    @model.save({
+     url_sound : input 
+      })
+
+      
+
+    @voice.load() 
     
    
 
