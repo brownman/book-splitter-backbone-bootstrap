@@ -8,6 +8,7 @@ class RailsBackboneRelational.Models.Comment extends Backbone.RelationalModel
     direction: true
     title: 'title' 
     order: 0 
+    url_sound: 'http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3'
   
   validate: (attrs) ->
 

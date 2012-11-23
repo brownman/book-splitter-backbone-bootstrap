@@ -29,13 +29,76 @@
       -  </div>
 
     -  </div>
+  <div>
+<p id="play">Play</p>
+<p id="rate">1x</p>
+<p id="stop">Stop</p>
+<p id="pause">Pause</p>
+<p id="rew10">-10sec</p>
+<p id="ff10">+10sec</p>
+<p id="time">0:0</p>
+<canvas id="world"></canvas>
 
 
+<script type="text/javascript">
+$=function(element) { 
+    <!--
+       -return document.querySelector(element);
+       -->
+};
+p={
+    audio : null,
+    onLoad: function() {
+	p.audio = new Audio('http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3');
+	$('#play').onclick=p.onPlay;
+	$('#stop').onclick=p.onStop;
+	$('#pause').onclick=p.onPause;
+	$('#rew10').onclick=p.on10rew;
+	$('#ff10').onclick=p.on10ff;
+	$('#rate').onclick=p.onRate;
+	p.audio.addEventListener('timeupdate', p.onTimeUpdate, false);
+    },
+    onPlay: function() {
+	p.audio.play();
+    },
+    onStop: function() {
+	p.audio.currentTime = 0;
+	p.onPause();
+    },
+    onPause: function() {
+	p.audio.pause();
+    },
+    on10rew: function() {
+	p.audio.currentTime -=10;
+    },
+    on10ff: function() {
+	p.audio.currentTime +=10;
+    },
+    onRate: function() {
+	var rate = $('#rate').textContent;
+	$('#rate').textContent= rate === '1x' ? '2x' : rate === '2x' ? '1/2x' : '1x';
+	rate = $('#rate').textContent;
+	p.audio.playbackRate = rate === '1x' ? 1.0 : rate=== '2x' ? 2.0 : 0.5;
+    },
+    onTimeUpdate : function() {
+	var currTime = p.audio.currentTime;
+	$('#time').textContent=parseInt(currTime/60,10)+':'+
+	    parseInt(currTime%60,10) + '/' + 
+	    parseInt(p.audio.duration/60,10)+':'+
+	    parseInt(p.audio.duration%60,10);
+    }
+};
+<!--
+   -window.onload=p.onLoad;
+   -->
+</script>
+
+</div>
 </body>
 <footer>
 
   <a href="https://github.com/documentcloud/backbone/blob/master/test">
-    thanks to Backbone.js
+    ...thanks to Backbone.js
   </a>
 </footer>
       </html>

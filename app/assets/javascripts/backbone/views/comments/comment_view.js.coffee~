@@ -17,6 +17,10 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "click .hide1"              : "toggleShow" 
     "click .save"              : "save_array" 
+    
+    "click .Play"              : "Play" 
+    "click .Stop"              : "Stop" 
+    "click .Pause"              : "Pause" 
 
     "blur .seconds"              : "set_delay" 
 
@@ -26,9 +30,87 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     "blur .title"      : "set_title"
 
+    "blur .url_sound"      : "set_url_sound"
+
+    
+  set_url_sound: (e) ->
+    alert('sound')
+
+
+    @voice.src = 'http://koebu.s3.amazonaws.com/mp3/c/c7/c78a/c78a5fe8acbd284852a3b1918e9f9772e59868b2.mp3'  
+
+    @voice.load() 
+    input = e.target.value
+    console.log(input)
+
+    #sound = new Audia(
+                  #src: input
+                  #loop: false 
+                  #)
+
+    #sound.src = 'http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3'
+    #sound.play()
+    
+   
+
+
+
+
+  Stop: (e) ->
+        #e.preventDefault() 
+        if(!@voice.ended) 
+          @voice.pause() 
+          @voice.currentTime = 0 
+          #$(this).unbind('touchstart');
+  Play: (e) ->
+        #e.preventDefault() 
+
+        @voice.play() 
+        @voice.playbackRate = 2 
+
+        @voice.addEventListener('timeupdate',     @onTimeUpdate, this) 
+     #$(this).unbind('touchstart');
+               
+  Pause: (e) ->
+        #e.preventDefault() 
+        @voice.pause() 
+
+    
+  onTimeUpdate: ( ) =>
+        #p = @voice
+        currTime = @voice.currentTime 
+        #console.log(currTime)
+        val       = currTime 
+        #str = parseInt(currTime/60,10) +':' +
+         #parseInt(currTime%60,10) + '/' + 
+         #parseInt(p.duration/60,10) +':' +
+         #parseInt(p.duration%60,10) 
+          #.toString()
+        #console.log(str)
+
+        #str1 = parseInt(p.duration / 60 ,10) 
+        
+        $(@el).find('.sound_timer').attr('value',val)
+
+         
+      
+
+        #@el.$('.sound_time').textContent=str
+            #
+            #attr('value', val)
+            #
+            #
+
+
+        #$(item).attr('value', 'not Saved');
+
+   #p.audio = new Audio('http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3');
 
 
     #"hover .todo-array button": "show_tooltip"
+
+        
+
   set_content: (e) ->
       console.log(e)
       input = e.target.value
@@ -54,6 +136,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   initialize: () ->
 
 
+
+   
    console.log(this)
 
    console.log(@options)
@@ -64,6 +148,12 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
    @seconds = 30
    #@hide1 = false
    this.model.bind('change', this.before_render);
+   @voice = new Audio()
+
+   @voice.autoplay = false 
+   @voice.defaultPlaybackRate = 1 
+  
+
  
   before_render:() =>
     @status = 'saved'
@@ -173,7 +263,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
   
   whiteSpaceCheck:   (ev) -> 
     
-    ev.stopImmediatePropagation()
+
     item =  ev.target
     str = $(item).context.innerText
 
@@ -184,7 +274,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
      $(item).addClass("test1") 
     else
      @push_index(ev)
-    return false
+     
+    ev.stopImmediatePropagation()
+    #return false
   
   something: (msg) ->
      $(this).removeClass("test1") 
