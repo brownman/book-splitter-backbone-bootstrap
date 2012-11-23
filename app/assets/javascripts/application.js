@@ -22,5 +22,6 @@
 //= require backbone_datalink
 //= require backbone-localstorage
 //= require backbone/rails_backbone_relational
+//= require audia
 //= require_tree .
 

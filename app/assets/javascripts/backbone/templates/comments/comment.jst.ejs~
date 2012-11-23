@@ -48,13 +48,27 @@
 
 <div class='all'>
     <label class="checkbox span12" >
-      <input type="checkbox" name="direction" class='direction span3' <%= obj.direction ? 'checked="checked"' : '' %> >direction(ltr):
+      <input type="checkbox" name="direction" class='direction' <%= obj.direction ? 'checked="checked"' : '' %> >direction(ltr):
     </label>
 
     <input  type="button" name="show" value='hide' class="span12 hide1 " <%= obj6 ? 'checked="checked"' : '' %> />
 
     <br>
 
+    <b>play: </b>
+
+
+<h1>Audio Test</h1>
+
+    <input  class='url_sound span12' height='1em' type='text' value='<%= obj.url_sound %>'></input>
+
+    <input  class='sound_timer span12' height='1em' type='text' ></input>
+   
+<p  id="sound_time" class=" sound_time" /p>
+<a  id="Play" class="btn Play">Play</a>
+<a  id="Pause" class="btn Pause">Pause</a>
+<a  id="Stop" class="btn Stop">Stop</a>
+    <br>
 
     <b>title: </b>
     <input  class='title span12' height='1em' type='text' value='<%= obj.title %>'></input>
