@@ -34,13 +34,13 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     
   set_url_sound: (e) ->
-    alert('sound')
+    console.log('sound')
 
 
 
     input = e.target.value
 
-    @voice.src =      input 
+    @voice.src =      input.toString() 
 
       #'http://koebu.s3.amazonaws.com/mp3/c/c7/c78a/c78a5fe8acbd284852a3b1918e9f9772e59868b2.mp3'
 
@@ -59,9 +59,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     #sound.src = 'http://k003.kiwi6.com/hotlink/3dgmyavs49/your_name_ft_gaduk.mp3'
     #sound.play()
-    @model.save({
-     url_sound : input 
-      })
+    @model.save({url_sound: input})
 
       
 
