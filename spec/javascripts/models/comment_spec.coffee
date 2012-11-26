@@ -1,7 +1,8 @@
-describe "MyGame", ->
+describe "comment model", ->
    beforeEach ->
-     @comment = new RailsBackboneRelational.Models.Comment({content: 'a,b,c'})
+     @comment = new RailsBackboneRelational.Models.Comment({title: ''})
 
    it "should have two players", ->
-      expect(@comment.array).toEqual ['a,','b,','c'] 
+      expect(@comment.isValid()).toEqual false
+      #expect(@comment.errors).toEqual false
       

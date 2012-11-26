@@ -60,10 +60,11 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 
-gem 'jasmine'
-gem 'jasminerice'
+
   
 group :development, :test do
+gem 'jasmine'
+gem 'jasminerice'
 #gem 'activerecord-sqlite3-adapter'
   gem 'sqlite3', '1.3.5'
 
