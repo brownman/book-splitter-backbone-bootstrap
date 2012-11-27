@@ -1,2 +1,16 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+return
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => "mariana82.herokuapp.com",
+  :address => "smtp.sendgrid.net",
+  :enable_starttls_auto => true
+}
+ActionMailer::Base.delivery_method = :smtp
+
+
