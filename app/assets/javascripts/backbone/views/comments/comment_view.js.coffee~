@@ -9,6 +9,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
   events:
     "click .destroy" : "destroy"
+
+    "click .mode" : "switch_mode"
     #"dblclick .todo-array button": "push_index"
 
     "click .all .todo-array button": "whiteSpaceCheck"
@@ -18,11 +20,15 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "click .hide1"              : "toggleShow" 
     "click .save"              : "save_array" 
     
+
+    "click .Load"              : "Load" 
     "click .Play"              : "Play" 
     "click .Stop"              : "Stop" 
     "click .Pause"              : "Pause" 
 
     "blur .seconds"              : "set_delay" 
+
+    "blur .speed"              : "set_speed" 
 
     "blur .order"              : "set_order" 
 
@@ -31,16 +37,40 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     "blur .title"      : "set_title"
 
     "blur .url_sound"      : "set_url_sound"
-
+  
     
+  switch_mode: (e) ->
+    @play_mode=   !@play_mode
+
+    @render()
+
+    a = $(@el).find('.all')
+    if(!@play_mode)
+      a.css("background-color","#ffbb88");
+    
+    
+  set_speed: (e) ->
+   #console.log(e)
+      input = e.target.value
+
+        #this.$(".content");
+      console.log(input)
+
+      #@model.save({ content: input })
+      #
+      @speed = input
+      @voice.playbackRate =parseFloat(input) 
+      
+
+
   set_url_sound: (e) ->
-    alert('sound')
+    console.log('sound')
 
 
 
     input = e.target.value
 
-    @voice.src =      input.toString() 
+    #@voice.src =      input.toString() 
 
       #'http://koebu.s3.amazonaws.com/mp3/c/c7/c78a/c78a5fe8acbd284852a3b1918e9f9772e59868b2.mp3'
 
@@ -48,7 +78,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
 
 
-    console.log(input)
+    #console.log(input)
 
 
 
@@ -63,7 +93,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
       
 
-    @voice.load() 
+
     
    
 
@@ -80,9 +110,14 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
         #e.preventDefault() 
 
         @voice.play() 
-        @voice.playbackRate = 2 
+        @voice.playbackRate = 1 
 
+        @voice.removeEventListener('timeupdate',     @onTimeUpdate, this) 
         @voice.addEventListener('timeupdate',     @onTimeUpdate, this) 
+        a = $(@el).find('.Stop')
+        $(a).removeAttr("disabled")
+        a = $(@el).find('.Pause')
+        $(a).removeAttr("disabled")
      #$(this).unbind('touchstart');
                
   Pause: (e) ->
@@ -94,7 +129,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
         #p = @voice
         currTime = @voice.currentTime 
         #console.log(currTime)
-        val       = currTime 
+        val       = parseInt(currTime) 
         #str = parseInt(currTime/60,10) +':' +
          #parseInt(currTime%60,10) + '/' + 
          #parseInt(p.duration/60,10) +':' +
@@ -104,7 +139,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
         #str1 = parseInt(p.duration / 60 ,10) 
         
-        $(@el).find('.sound_timer').attr('value',val)
+        $(@el).find('.sound_timer').attr('value',val.toString())
 
          
       
@@ -148,6 +183,7 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
       
     #$(@el).removeClass("editing")
   initialize: () ->
+   @play_mode = true
 
 
 
@@ -160,13 +196,41 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
    #@options.c_length
    @status = 'saved'
    @seconds = 30
+
+   @speed = 1
    #@hide1 = false
    this.model.bind('change', this.before_render);
+
+   $(@el).find('.Stop').attr('disabled','disabled')
+
+   $(@el).find('.Pause').attr('disabled','disabled')
+   $(@el).find('.Play').attr('disabled','disabled')
+
+
+  Load: () ->
    @voice = new Audio()
 
    @voice.autoplay = false 
    @voice.defaultPlaybackRate = 1 
-  
+
+   str =  @model.get('url_sound')
+   console.log('load file: ' + str)
+
+   @voice.src =     str 
+
+   @voice.removeEventListener("canplaythrough", @alert_status, this)
+   @voice.addEventListener("canplaythrough", @alert_status, this)
+
+   @voice.load() 
+
+
+
+
+
+  alert_status: () =>
+    #alert('can play')
+    a = $(@el).find('.Play')
+    $(a).removeAttr("disabled")
 
  
   before_render:() =>
@@ -223,6 +287,9 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
       'obj6': @hide1 
 
+      'play_mode': @play_mode
+      'speed': @speed
+
     )
     $(@el).html(tmp)
     
@@ -243,13 +310,23 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
    
         
   push_index:   (ev) -> 
-    item =  $(ev.target)
-    num =(item).index()
-    array =    @get_array()
-    array[num...num] = ['=']
-    @array = array
+    if(@play_mode)
+      item =  $(ev.target)
+      num =(item).index()
+      array =    @get_array()
+      array[num...num] = ['=']
+      @array = array
     #@update_status('true')
-    @status = 'not saved!'
+      @status = 'not saved!'
+    else
+      item =  $(ev.target)
+      num =(item).index()
+      array =    @get_array()
+      a = parseFloat(@voice.currentTime)
+      array[num] = a.toString()
+
+
+      
     @render()
   
   update_status2: (sign) ->
@@ -280,15 +357,17 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
 
     item =  ev.target
     str = $(item).context.innerText
-
-    tmp1 =  $(item).hasClass("test1") 
-    #alert(tmp1)
-    if(str != '=' && !tmp1)
-     _.delay(_.bind(this.something, item), @seconds * 1000 , 'logged later') 
-     $(item).addClass("test1") 
+    if(@play_mode)
+      tmp1 =  $(item).hasClass("test1") 
+      #alert(tmp1)
+      if(str != '=' && !tmp1)
+         _.delay(_.bind(this.something, item), @seconds * 1000 , 'logged later') 
+         $(item).addClass("test1") 
+      else
+         @push_index(ev)
     else
-     @push_index(ev)
-     
+         @push_index(ev)
+      
     ev.stopImmediatePropagation()
     #return false
   
@@ -320,6 +399,8 @@ class RailsBackboneRelational.Views.Comments.CommentView extends Backbone.View
     console.log(this)
     @el.className = str 
   
+
+
 
 
 
