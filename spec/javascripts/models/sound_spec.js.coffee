@@ -43,7 +43,8 @@
       size = 3 
       min = 0
       max = 10
-      arr = @s1.create_arr_of_gap(min,max,size)
+      ar = [min , size , max]
+      arr = @s1.create_arr_of_gap(ar)
       expect(arr).toEqual([2.5,5,7.5])
       #expect(@comment.errors).toEqual false
         #expect(@comment.errors).toEqual false
@@ -55,28 +56,35 @@
         expect(index).toEqual(1)
 
      it "should group undefined in array", ->
-        arr = [1,undefined, undefined, 2]
-       
-       # for i in [0...arr.length]
-       #   if arr[i] == undefined
-        t_arr = []
-        stack = 0
-        for i in [0...arr.length]
-          if(arr[i] != undefined)
-            if stack !=0
-              n_arr = []
-              n_arr.push stack
-              t_arr.push(n_arr) 
-              stack = 0
-            t_arr.push arr[i]
+        arr = [1,undefined,undefined,4]
+        
+        t_arr = @s1.group_undefineds(arr)
+
+        res = [1, [1,2,4], 4]
+        expect(t_arr).toEqual(res) 
+
+      it "should calculate values of sub-arrays, givven: min, max and length", ->
+     
+        arr = [1, [1,2,4], 4]
+        #expect(t_arr).toEqual(res) 
+        #res2 = @s1.replace_groups(res)
+        res2 = []
+        end = arr.length
+        for i in [0...end]
+          if (typeof arr[i] == 'object')
+            group = arr[i] 
+            calc = @s1.create_arr_of_gap(group) 
+            res2.push calc
+
+
+            
           else 
-            stack += 1
+            res2.push arr[i]
 
-
-        expect(t_arr).toEqual([1,[2],2])
-
-      it "should calculate values of sub-arrays"
+        res3 = _.flatten res2
+        expect(res3).toEqual([1,2,3,4])
         #if arr[i] is type Array:
         #find min, max ,length  
         #than replace arr[i] with calculated array
+   
 
