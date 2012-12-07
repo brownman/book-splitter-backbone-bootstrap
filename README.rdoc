@@ -46,14 +46,6 @@ LATER ON:
 
 
 ==based on: Sample Backbone App using Backbone-relational
-textile:
--
+ 
 {<img src="https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png" />}[https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap]]
-
-markdown:
--
-[![Build Status](https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png)](https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap])
--
-rdoc:
-"!https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png!":https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap]
-
+ 
