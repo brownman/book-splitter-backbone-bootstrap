@@ -1,3 +1,4 @@
+
 describe "post model", ->
   beforeEach ->
     @post = new RailsBackboneRelational.Models.Post({content: 'a,b,c'})
@@ -8,9 +9,8 @@ describe "post model", ->
     #Equal ['a,','b,','c']
 
   it "should have 1 comment", ->
-    expect(@comments.length).toEqual(0)
+    expect(@comments.length).toEqual(3)
     #@post.add({title: ''})
     #expect(@comments.length).toEqual(1)
-
 
 

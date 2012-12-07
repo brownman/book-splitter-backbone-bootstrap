@@ -9,3 +9,4 @@ window.RailsBackboneRelational =
   Collections: {}
   Routers: {}
   Views: {}
+  Modules: {}
