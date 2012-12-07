@@ -2,25 +2,58 @@ book-splitter for smartphones
 -----------------------------
 
 
-todo: 
-- post will not fetch comments anless user click on a post
+TODO: 
+- add player
+- add fields to db: comments model: sound_url:string, keyframes:text
+ 
+
+DONE:
+- post will not fetch comments anless user click on a post.
+---> dont fetch on posts.view.index , click on post-view-item triggers 
+fetching its own model
+
 - text to ascii - dealing with endl - on song-texts
-- db - add element to story: right-to-left:boolean, title:string
-- using db - to store array structure
-- making js interaction more fast - dont save each edit on column
-- resize font with touch events (or else)
+---> replace endl char with symbol: ^ make it easier to edit the text in the dom.textArea
+
 - preformance: don't pull collection as default
+---> router defaults: the view:_posts_index doesn't create the views for the comments.json
 
+- resize font with touch events (or else)
+---> user can hide columns and the left ones(X) expended by maintaining the parameter: view.dom.className=spanX on each comment_view instance
 
-- explenation page : implement a nav bar
-- font size - resize screen with touch events
-- individual db - user authenticate
+- making js interaction more fast - dont save each edit on column
+---> add 'save' button to a comment view.
+
+- using db - to store array structure
+---> parsing text to array for fields 
+     content:text -> (panctuation,^)
+     keyframes:text -> (commas)
+
 - switch for: right to left paragraph
+---> view: added checkbox to control html feature: rtl  
+     db: added element to story: right-to-left:boolean, title:string
 
+
+LATER ON:
+- explenation page : implement a nav bar
+- individual db - user authenticate
 - be able to add cards - quizes
 - using git more smartly
 - accomplish d' exam
 
 
+
+
+
 ==based on: Sample Backbone App using Backbone-relational
+textile:
+-
+{<img src="https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png" />}[https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap]]
+
+markdown:
+-
+[![Build Status](https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png)](https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap])
+-
+rdoc:
+"!https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png!":https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap]
 
