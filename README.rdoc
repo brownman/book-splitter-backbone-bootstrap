@@ -47,5 +47,5 @@ LATER ON:
 
 ==based on: Sample Backbone App using Backbone-relational
  
-{<img src="https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap].png" />}[https://travis-ci.org/[brownman]/[book-splitter-backbone-bootstrap]]
+{<img src="https://travis-ci.org/brownman/book-splitter-backbone-bootstrap.png" />}[https://travis-ci.org/brownman/book-splitter-backbone-bootstrap]
  
