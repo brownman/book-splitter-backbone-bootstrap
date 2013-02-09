@@ -16,3 +16,4 @@ edit backbone model and add relation
 check rails-backbone version
 
 
+heroku rake db:schema:load

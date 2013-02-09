@@ -11,13 +11,7 @@
     <div id="collapseOne<%= obj.id %>" class="accordion-body collapse child1">
       <div class="accordion-inner">
           <div class='details'>
-
-
-
-
-
                             <br>
-
 
                             order:
                             <input label='order: ' tooltip='order..' class='order span12' height='1em' type='text' value='<%= obj5 %>'></input>
@@ -27,9 +21,6 @@
                             <input  class='id span12' height='1em' type='text' label='id' value='<%= obj.id %>'></input>
                             <br>
 
-
-
-
                             delay(s):
                             <input label='time: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj3 %>'></input>
                             <br>
@@ -37,19 +28,6 @@
                             span:
                             <input label='span: ' tooltip='delay in seconds' class='seconds span12' height='1em' type='text' value='<%= obj4 %>'></input>
                             <br>
-
-
-                        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class='all'>
-    <label class="checkbox span12" >
-      <input type="checkbox" name="direction" class='direction' <%= obj.direction ? 'checked="checked"' : '' %> >direction(ltr):
-    </label>
 
 
     <input  type="button" name="show" value='hide' class="span12 hide1 " <%= obj6 ? 'checked="checked"' : '' %> />
@@ -79,6 +57,18 @@
 <input  id="speed" class="speed" value=<%= speed %> />
     <br>
 
+
+                        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class='all'>
+    <label class="checkbox span12" >
+      <input type="checkbox" name="direction" class='direction' <%= obj.direction ? 'checked="checked"' : '' %> >direction(ltr):
+    </label>
     <b>title: </b>
     <input  class='title span12' height='1em' type='text' value='<%= obj.title %>'></input>
     <br>

@@ -1,0 +1,2 @@
+rake db -T
+heroku rake db:schema:load
